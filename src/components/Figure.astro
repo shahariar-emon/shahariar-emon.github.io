@@ -1,0 +1,6 @@
+---
+import { sitePath } from "../utils/paths";
+const {src,alt,caption,source='electroporation',compact=false}=Astro.props;
+const doi=source==='semdock'?'10.1016/j.xpro.2026.104822':source==='transport'?'10.1007/s10867-025-09682-w':'10.1007/s00249-025-01793-5';
+---
+<figure class:list={['research-figure',{compact}]}><a href={sitePath(`/images/${src}`)} data-figure data-alt={alt} data-caption={caption} aria-label={`Enlarge figure: ${alt}`}><img src={sitePath(`/images/${src}`)} alt={alt} loading="lazy" decoding="async"/><span class="enlarge">Enlarge ↗</span></a><figcaption>{caption} <a href={`https://doi.org/${doi}`} target="_blank" rel="noreferrer">Emon et al., {source==='semdock'?'2026':'2025'} ↗</a>{source==='semdock'&&<span> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>}</figcaption></figure>

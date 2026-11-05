@@ -1,0 +1,11 @@
+---
+import { sitePath } from "../utils/paths";
+import Base from '../layouts/Base.astro';
+---
+<Base title="Beyond research · Music & photography" active="Beyond research" description="Music and photography: a glimpse of Shahariar Emon's interests beyond academic research.">
+<section class="container page-intro hobbies-intro"><p class="eyebrow">Beyond research</p><h1>A different kind<br/><span>of curiosity.</span></h1><p class="lead">Away from research, I enjoy music and photography. This is a small space for that side of my life.</p></section>
+<section class="container hobbies-grid" aria-label="Personal interests">
+<article class="hobby"><div class="hobby-art music-art" aria-hidden="true"><span>♪</span><div class="music-staff"></div><small>01 / Sound</small></div><div class="hobby-text"><p class="eyebrow">Music</p><h2>Making room<br/>for music.</h2><p>I play guitar and sing, with a particular love for classic rock, metal, and progressive rock.</p><p class="hobby-detail">On my listening list</p><ul class="band-list"><li>Led Zeppelin</li><li>Tool</li><li>System of a Down</li><li>Pink Floyd</li><li>Porcupine Tree</li></ul></div></article>
+<article class="hobby"><div class="hobby-art photo-art" aria-hidden="true"><div class="viewfinder"><span></span></div><small>02 / Light</small></div><div class="hobby-text"><p class="eyebrow">Photography</p><h2>Looking through<br/>another lens.</h2><p>My interests include straight and street photography, alongside nature and scenic beauty. I enjoy exploring both everyday scenes and the natural world through the camera.</p><div class="interest-list"><span>Straight photography</span><span>Street photography</span><span>Nature & landscapes</span></div></div></article>
+</section><section class="container hobbies-outro"><div><p class="eyebrow">Stay connected</p><h2>Science, and everything around it.</h2></div><a class="button" href={sitePath("/about/#contact")}>Get in touch ↗</a></section>
+</Base>

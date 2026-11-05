@@ -1,0 +1,234 @@
+[
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 1.tif",
+    "original_dimensions": [
+      6075,
+      4500
+    ],
+    "web_file": "electroporation-figure-1.webp",
+    "dimensions": [
+      2000,
+      1481
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 2.tif",
+    "original_dimensions": [
+      6075,
+      5400
+    ],
+    "web_file": "electroporation-figure-2.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 3.tif",
+    "original_dimensions": [
+      3900,
+      3600
+    ],
+    "web_file": "electroporation-figure-3.webp",
+    "dimensions": [
+      2000,
+      1846
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 4.tif",
+    "original_dimensions": [
+      2125,
+      2503
+    ],
+    "web_file": "electroporation-figure-4.webp",
+    "dimensions": [
+      1698,
+      2000
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 5.tif",
+    "original_dimensions": [
+      1983,
+      1513
+    ],
+    "web_file": "electroporation-figure-5.webp",
+    "dimensions": [
+      1983,
+      1513
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 6.tif",
+    "original_dimensions": [
+      6075,
+      5400
+    ],
+    "web_file": "electroporation-figure-6.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "source_archive": "Electoroporation_Figures.zip",
+    "source_file": "Figures/Figure 7.tif",
+    "original_dimensions": [
+      6075,
+      5400
+    ],
+    "web_file": "electroporation-figure-7.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "web_file": "membrane-detail.webp",
+    "source_file": "Figures/Figure 1.tif",
+    "crop_box": [
+      3330,
+      450,
+      5730,
+      2050
+    ],
+    "change": "Crop only; no recoloring or reconstruction."
+  },
+  {
+    "source_archive": "STAR_protocols.zip",
+    "source_file": "Figure 1.JPG",
+    "original_dimensions": [
+      1950,
+      2250
+    ],
+    "web_file": "semdock-figure-1.webp",
+    "dimensions": [
+      1733,
+      2000
+    ]
+  },
+  {
+    "source_archive": "STAR_protocols.zip",
+    "source_file": "Figure 2.JPG",
+    "original_dimensions": [
+      975,
+      600
+    ],
+    "web_file": "semdock-figure-2.webp",
+    "dimensions": [
+      975,
+      600
+    ]
+  },
+  {
+    "source_archive": "STAR_protocols.zip",
+    "source_file": "Figure 3.JPG",
+    "original_dimensions": [
+      1950,
+      2250
+    ],
+    "web_file": "semdock-figure-3.webp",
+    "dimensions": [
+      1733,
+      2000
+    ]
+  },
+  {
+    "source_archive": "STAR_protocols.zip",
+    "source_file": "Graphical Abstract.jpg",
+    "original_dimensions": [
+      1200,
+      1200
+    ],
+    "web_file": "semdock-abstract.webp",
+    "dimensions": [
+      1200,
+      1200
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 1.TIF",
+    "original_dimensions": [
+      4050,
+      3600
+    ],
+    "web_file": "transport-figure-1.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 2.TIF",
+    "original_dimensions": [
+      4050,
+      3600
+    ],
+    "web_file": "transport-figure-2.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 3.tif",
+    "original_dimensions": [
+      1950,
+      1654
+    ],
+    "web_file": "transport-figure-3.webp",
+    "dimensions": [
+      1950,
+      1654
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 4.TIF",
+    "original_dimensions": [
+      4050,
+      3600
+    ],
+    "web_file": "transport-figure-4.webp",
+    "dimensions": [
+      2000,
+      1778
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 5.TIF",
+    "original_dimensions": [
+      3930,
+      1680
+    ],
+    "web_file": "transport-figure-5.webp",
+    "dimensions": [
+      2000,
+      855
+    ]
+  },
+  {
+    "source_archive": "Biological_physics_Figures.zip",
+    "source_file": "Figures/Figure 6.TIF",
+    "original_dimensions": [
+      3930,
+      1680
+    ],
+    "web_file": "transport-figure-6.webp",
+    "dimensions": [
+      2000,
+      855
+    ]
+  }
+]

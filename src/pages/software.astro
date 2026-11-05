@@ -1,0 +1,51 @@
+---
+import { sitePath } from '../utils/paths';
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+---
+<Base title="Research software · semdock & Diffusion" active="Software" description="Research software by Shahariar Emon: semdock for virtual screening and MATLAB diffusion simulations for transport through dynamic membrane pores.">
+<section class="container page-intro">
+  <p class="eyebrow">Research software</p>
+  <h1>Practical tools.<br/><span>Reproducible science.</span></h1>
+  <p class="lead">Software that connects scientific questions with computational workflows.</p>
+  <a class="text-link" href="https://github.com/elrando/" target="_blank" rel="noreferrer">My GitHub profile ↗</a>
+</section>
+<section class="container software-feature" id="semdock" aria-labelledby="semdock-title">
+  <div>
+    <p class="eyebrow">01 / Virtual screening</p>
+    <h2 class="display-small" id="semdock-title">semdock<span>.</span></h2>
+    <p>A virtual-screening workflow extending jamdock-suite to raw chemical datasets.</p>
+    <ul class="feature-list">
+      <li>Prepare ligands from SDF, SMILES, and CSV</li>
+      <li>Run ligand-wise CPU-parallel docking</li>
+      <li>Filter and organize screening results</li>
+    </ul>
+    <div class="actions">
+      <a class="button" href="https://github.com/elrando/semdock" target="_blank" rel="noreferrer">Open repository ↗</a>
+      <a class="text-link" href="https://doi.org/10.5281/zenodo.19998830" target="_blank" rel="noreferrer">Archived release ↗</a>
+    </div>
+    <p class="small muted">Use the repository and published protocol for installation instructions, dependencies, and licensing.</p>
+    <a class="text-link" href={sitePath('/research/semdock/')}>Read the research story →</a>
+  </div>
+  <Figure source="semdock" src="semdock-figure-1.webp" alt="semdock workflow compared with jamdock-suite" caption="Workflow comparison from Emon et al."/>
+</section>
+<section class="container software-feature software-feature-secondary" id="diffusion" aria-labelledby="diffusion-title">
+  <div>
+    <p class="eyebrow">02 / Membrane transport · MATLAB</p>
+    <h2 class="display-small" id="diffusion-title">Diffusion<span>.</span></h2>
+    <p>A MATLAB model connecting molecular-dynamics pore data with diffusion simulations of transport through electroporated lipid membranes.</p>
+    <ul class="feature-list">
+      <li>Use time-resolved pore geometry from molecular dynamics</li>
+      <li>Model hindered diffusion through changing membrane pores</li>
+      <li>Track molecular uptake with an explicit finite-difference scheme</li>
+    </ul>
+    <div class="actions">
+      <a class="button" href="https://github.com/elrando/Diffusion" target="_blank" rel="noreferrer">Open MATLAB repository ↗</a>
+      <a class="text-link" href="https://github.com/elrando/Diffusion/blob/main/README.md" target="_blank" rel="noreferrer">Setup & usage ↗</a>
+    </div>
+    <p class="small muted">MIT-licensed research code. Requires MATLAB and your own <code>Pore_radius.mat</code> input; see the repository for setup and memory requirements.</p>
+    <a class="text-link" href={sitePath('/research/electroporation/')}>Read the associated electroporation study →</a>
+  </div>
+  <Figure src="electroporation-figure-6.webp" alt="Molecular transport over time and comparison with molecular radius" caption="Figure 6. Transport and molecular-size comparisons from the associated pulse-modulation study."/>
+</section>
+</Base>

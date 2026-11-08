@@ -16,7 +16,45 @@
 .software-feature-secondary{border-top:1px solid var(--line);padding-top:60px}.software-feature code{overflow-wrap:anywhere}.software-feature .small{line-height:1.7}
 @media(max-width:800px){.software-feature-secondary{padding-top:40px}}
 
-/* Academic experience, presentations, and research methods */
-.academic-section{border-top:1px solid var(--line);padding-block:65px}.academic-section>h2{margin-bottom:32px}.academic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}.academic-card h3{font-size:27px;line-height:1.2;letter-spacing:-.025em;margin-bottom:16px}.academic-card .eyebrow{margin-bottom:14px}.academic-card p:not(.eyebrow),.academic-list p,.academic-intro{font-size:15px;color:var(--sub);line-height:1.75}.academic-card p+p{margin-top:14px}.academic-intro{max-width:850px;margin-bottom:24px}.academic-list{list-style:none;padding:0;margin:0}.academic-list li{display:grid;grid-template-columns:180px minmax(0,1fr);gap:30px;border-top:1px solid var(--line);padding-block:26px}.academic-date{font-size:12px;color:var(--sub);line-height:1.7}.academic-list h3{font-size:23px;line-height:1.3;letter-spacing:-.025em;margin-bottom:10px}
-@media(max-width:800px){.academic-section{padding-block:45px}.academic-grid{gap:32px}.academic-list li{grid-template-columns:140px minmax(0,1fr);gap:20px}}
-@media(max-width:520px){.academic-grid{grid-template-columns:1fr}.academic-list li{grid-template-columns:1fr;gap:10px}.academic-card h3{font-size:25px}.academic-list h3{font-size:22px}}
+
+/* Academic CV-derived sections on the About page */
+.academic-section{padding-block:74px;border-top:1px solid var(--line)}
+.academic-section-heading{margin-bottom:38px;max-width:780px}
+.academic-section-heading .eyebrow{margin-bottom:15px}
+.academic-timeline{border-top:1px solid var(--line)}
+.academic-entry{display:grid;grid-template-columns:minmax(145px,190px) 1fr;gap:35px;padding-block:28px;border-bottom:1px solid var(--line)}
+.academic-entry h3{font-size:clamp(22px,2.4vw,30px);margin-bottom:8px}
+.academic-entry p:not(.academic-dates){font-size:15px;max-width:810px}
+.academic-dates{font-size:12px;font-weight:600;color:var(--sub);padding-top:8px}
+.academic-entry .academic-place{color:var(--ink);font-weight:600;margin-bottom:12px}
+.academic-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.academic-card{border:1px solid var(--line);background:rgba(255,255,255,.25);padding:28px;min-height:210px}
+.academic-card .eyebrow{margin-bottom:15px}
+.academic-card h3{font-size:22px;line-height:1.2;letter-spacing:-.025em;margin-bottom:16px}
+.academic-card p{font-size:14px;color:var(--sub)}
+.academic-card .academic-tools{color:var(--text);font-size:12px;margin-top:16px;font-weight:600}
+.academic-dual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
+.academic-dual h3{font-size:23px;margin-bottom:25px}
+.academic-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.academic-list li{border-bottom:1px solid var(--line);padding-block:18px;display:grid;gap:7px}
+.academic-list strong{font-size:14px;line-height:1.45;font-weight:600}
+.academic-list span{font-size:13px;color:var(--sub);line-height:1.55}
+.related-research{padding-block:40px 90px;border-top:1px solid var(--line)}
+.related-research h2{margin:0 0 26px}
+.related-research-list{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.related-research article{padding:24px 0;border-top:1px solid var(--line)}
+.related-research article h3{font-size:21px;line-height:1.3;margin-bottom:12px}
+.related-research article p{font-size:14px;color:var(--sub);margin-bottom:16px}
+.related-research .eyebrow{margin-bottom:10px}
+@media(max-width:900px){.academic-cards{grid-template-columns:1fr 1fr}.academic-dual{gap:28px}}
+@media(max-width:650px){.academic-section{padding-block:48px}.academic-entry{grid-template-columns:1fr;gap:8px}.academic-cards,.academic-dual,.related-research-list{grid-template-columns:1fr}.academic-card{min-height:auto;padding:22px}.related-research{padding-bottom:60px}}
+
+/* Keep research methods and page-section navigation consistent with the profile. */
+.academic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.academic-section>h2{margin-bottom:32px}
+.academic-intro{max-width:850px;font-size:15px;color:var(--sub);line-height:1.75;margin-bottom:24px}
+.about-section-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px}
+.about-section-links a{font-size:13px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
+.hero-affiliation .affiliation-details{min-width:0}
+.hero-affiliation .affiliation-project{display:block;color:var(--text);font-weight:600}
+@media(max-width:650px){.academic-grid{grid-template-columns:1fr}}

@@ -117,5 +117,39 @@ export const publications = [
     "project": null,
     "image": null,
     "bibtex": "@article{lithiumperoxide2025,\n  title={Understanding the Decomposition Mechanism of Li2O2 in the Cathode of Li-O2 Battery with First Principles Molecular Dynamics},\n  author={Alam, Md. Khorshed and Emon, Shahariar and Takaba, Hiromitsu},\n  journal={Physical Chemistry Research},\n  year={2025},\n  volume={13},\n  pages={677--686},\n  doi={10.22036/pcr.2025.512159.2655},\n  number={4}\n}"
+  },
+  {
+    "id": "nanopore-size",
+    "year": 2025,
+    "title": "Molecular transport by varying the size of nanopore in the membrane of GUV using simulation",
+    "authors": "Thuhudur Rahman, Md. Asaduzzaman, Shahariar Emon, Md. Imran Hossain, Md. Saif Ishtiaque, Mohammad Abu Sayem Karal, Md. Masum Billah, Hiromitsu Takaba, Md. Khorshed Alam",
+    "journal": "Applied Biological Research",
+    "details": "27(2), 223–233",
+    "doi": "10.48165/abr.2025.27.01.22",
+    "summary": "Finite element simulations investigate how nanopore diameter and fluorescent probe size influence molecular leakage from giant unilamellar vesicles.",
+    "bibtex": "@article{nanoporesize2025,\n  title={Molecular transport by varying the size of nanopore in the membrane of GUV using simulation},\n  author={Thuhudur Rahman and Md. Asaduzzaman and Shahariar Emon and Md. Imran Hossain and Md. Saif Ishtiaque and Mohammad Abu Sayem Karal and Md. Masum Billah and Hiromitsu Takaba and Md. Khorshed Alam},\n  journal={Applied Biological Research},\n  year={2025},\n  volume={27},\n  number={2},\n  pages={223--233},\n  doi={10.48165/abr.2025.27.01.22}\n}",
+    "topic": "Membrane biophysics",
+    "type": "Research article",
+    "featured": false,
+    "firstAuthor": false,
+    "project": null,
+    "image": null
+  },
+  {
+    "id": "asymmetric-multipores",
+    "year": 2024,
+    "title": "Study of molecular transport through nano-sized asymmetric multipores in the membrane of a giant unilamellar vesicle using COMSOL simulation",
+    "authors": "Md. Asaduzzaman, Sagor Das, Shovon Saha, Shahariar Emon, Md. Khorshed Alam",
+    "journal": "Bangladesh Journal of Physics",
+    "details": "31(2), 53–65",
+    "doi": "10.3329/bjphy.v31i2.79519",
+    "summary": "COMSOL simulations examine molecular transport through asymmetric membrane multipores for fluorescent probes of different sizes.",
+    "bibtex": "@article{asymmetricmultipores2024,\n  title={Study of molecular transport through nano-sized asymmetric multipores in the membrane of a giant unilamellar vesicle using COMSOL simulation},\n  author={Md. Asaduzzaman and Sagor Das and Shovon Saha and Shahariar Emon and Md. Khorshed Alam},\n  journal={Bangladesh Journal of Physics},\n  year={2024},\n  volume={31},\n  number={2},\n  pages={53--65},\n  doi={10.3329/bjphy.v31i2.79519}\n}",
+    "topic": "Membrane biophysics",
+    "type": "Research article",
+    "featured": false,
+    "firstAuthor": false,
+    "project": null,
+    "image": null
   }
 ];

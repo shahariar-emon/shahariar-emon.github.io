@@ -6,7 +6,7 @@ import Base from '../../layouts/Base.astro';
 <section class="container academic-section" aria-labelledby="current-research-heading">
   <p class="eyebrow">Current research</p><h2 id="current-research-heading">Autophagy & molecular interactions.</h2>
   <p class="academic-intro">At Islamic University, I lead the computational biology arm of a HEAT project investigating drug discovery through the regulation of autophagy in cancer. I use virtual screening against p62 and molecular dynamics to investigate small-molecule–protein interactions, alongside GUV preparation for experimental membrane studies.</p>
-  <a class="text-link" href={sitePath("/about/#experience-heading")}>Research experience →</a>
+  <a class="text-link" href={sitePath("/about/#experience")}>Research experience →</a>
 </section>
 <section class="container academic-section" aria-labelledby="methods-heading">
   <p class="eyebrow">Methods & expertise</p><h2 id="methods-heading">Across scales and approaches.</h2>
@@ -16,4 +16,25 @@ import Base from '../../layouts/Base.astro';
     <article class="academic-card"><h3>Quantitative transport</h3><p>PDE modeling and numerical simulations in MATLAB and COMSOL Multiphysics connect pore geometry with molecular transport.</p></article>
     <article class="academic-card"><h3>Experimental biophysics</h3><p>Giant unilamellar vesicle preparation, fluorescence microscopy, and confocal laser microscopy complement computational studies of membranes.</p></article>
   </div>
-</section></Base>
+</section>
+<section class="container related-research" aria-labelledby="related-research-title">
+  <p class="eyebrow">Related publications</p>
+  <h2 id="related-research-title">More on membrane transport.</h2>
+  <div class="related-research-list">
+    <article>
+      <p class="eyebrow">Applied Biological Research · 2025</p>
+      <h3>Molecular transport by varying the size of nanopore in the membrane of GUV using simulation</h3>
+      <p>COMSOL modeling of the influence of nanopore diameter and molecular size on transport through giant unilamellar vesicle membranes.</p>
+      <a class="text-link" href="https://doi.org/10.48165/abr.2025.27.01.22" target="_blank" rel="noreferrer">Read the paper ↗</a>
+    </article>
+    <article>
+      <p class="eyebrow">Bangladesh Journal of Physics · 2024</p>
+      <h3>Transport through asymmetric multipores in giant unilamellar vesicles</h3>
+      <p>Finite-element simulations of nanopore-mediated transport, extending the continuum-modeling theme of my membrane research.</p>
+      <a class="text-link" href="https://doi.org/10.3329/bjphy.v31i2.79519" target="_blank" rel="noreferrer">Read the paper ↗</a>
+    </article>
+  </div>
+  <a class="text-link" href={sitePath('/publications/')}>View complete publication list →</a>
+</section>
+
+</Base>

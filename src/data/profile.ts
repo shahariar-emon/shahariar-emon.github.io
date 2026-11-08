@@ -1,5 +1,6 @@
 export const profile = {
  name: 'Shahariar Emon', title: 'Research Manager',
+ project: 'HEAT Project',
  department: 'Department of Biotechnology and Genetic Engineering',
  institution: 'Islamic University, Bangladesh',
  email: 'semon17.phy@bu.ac.bd', secondaryEmail: 'smemon275@gmail.com',

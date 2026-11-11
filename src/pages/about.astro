@@ -1,107 +1,23 @@
 ---
-import { sitePath } from "../utils/paths";
+import { sitePath } from '../utils/paths';
 import Base from '../layouts/Base.astro';
-import Portrait from '../components/Portrait.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import { photos } from '../data/photos';
 import { profile } from '../data/profile';
+const awardPhotos = photos.conferences.filter(p => ['best-paper-award', 'best-poster-award'].includes(p.slug));
 ---
-<Base title="About & contact" active="About" description="Academic background, research appointments, skills, scientific communication, and contact information for Shahariar Emon.">
-  <section class="container page-intro">
-    <p class="eyebrow">About me</p>
-    <h1>Physics meets biology.<br/><span>Curiosity connects them.</span></h1>
-    <p class="lead">I study molecular interactions and membrane behavior through computational biophysics, combining molecular simulations with quantitative modeling.</p>
-    <div class="about-section-links" role="navigation" aria-label="About page sections">
-      <a href="#experience">Affiliations &amp; education ↓</a>
-      <a href="#recognition">Awards &amp; exchange ↓</a>
-      <a href="#presentations">Conference presentations ↓</a>
-      <a href="#expertise">Methods &amp; tools ↓</a>
-      <a href={sitePath('/gallery/')}>Research life gallery →</a>
-    </div>
+<Base title="About & contact" active="About" description="Shahariar Emon's affiliations, education, Sakura Science exchange and academic highlights.">
+  <section class="container page-intro about-intro"><p class="eyebrow">About</p><h1>Background &amp;<br/><span>experience.</span></h1></section>
+  <section class="container brief-background" id="experience" aria-label="Affiliations and education">
+    <dl class="background-list">
+      <div><dt>Current affiliation<span>Nov 2025 — present</span></dt><dd><h2>Research Manager</h2><p>HEAT Project · Department of Biotechnology and Genetic Engineering<br/>Islamic University, Bangladesh</p></dd></div>
+      <div><dt>Previous experience<span>May 2024 — Oct 2025</span></dt><dd><h2>Research Assistant</h2><p>K. Alam Research Laboratory · Department of Physics<br/>University of Barishal, Bangladesh</p></dd></div>
+      <div><dt>Education<span>Completed Jul 2023</span></dt><dd><h2>BSc in Physics</h2><p>University of Barishal, Bangladesh</p></dd></div>
+    </dl>
   </section>
-  <section class="container about-grid">
-    <div class="identity-block">
-      <Portrait />
-      <h2>{profile.name}</h2>
-      <p>{profile.title}</p>
-      <p>{profile.project}<br/>{profile.department}<br/>{profile.institution}</p>
-    </div>
-    <div class="about-copy">
-      <h2>Understanding biological systems through computation.</h2>
-      <p>With a background in physics, my research focuses on membrane permeabilization, small-molecule interactions with proteins and membranes, and molecular simulation methods.</p>
-      <p>I currently lead computational biology work in a cancer-autophagy research project at Islamic University. Previously, at K. Alam Research Laboratory, I studied electroporation and molecular transport using molecular dynamics and continuum modeling.</p>
-      <p>My peer-reviewed work includes first-author electroporation studies and a STAR Protocols publication describing the <em>semdock</em> virtual-screening workflow.</p>
-      <div class="interest-list"><span>Membrane biophysics</span><span>Molecular dynamics</span><span>Protein–small-molecule interactions</span><span>Computational screening</span></div>
-      <a class="text-link" href={sitePath('/publications/')}>Browse my publications →</a>
-      <p class="beyond-link">Outside research, I enjoy music and photography. <a class="text-link" href={sitePath('/hobbies/')}>Beyond research →</a></p>
-    </div>
-  </section>
-
-  <section class="container academic-section" id="experience" aria-labelledby="experience-title">
-    <span id="experience-heading" aria-hidden="true"></span>
-    <div class="academic-section-heading"><p class="eyebrow">Academic journey</p><h2 id="experience-title">Affiliations &amp; education.</h2></div>
-    <div class="academic-timeline">
-      <article class="academic-entry"><p class="academic-dates">Nov 2025 — present</p><div><h3>Research Manager</h3><p class="academic-place">HEAT Project · Department of Biotechnology and Genetic Engineering · Islamic University, Bangladesh</p><p>Leading the computational biology arm of “Discovery of Drug Against Cancer through the Regulation of Autophagy,” a Higher Education Acceleration and Transformation (HEAT) sub-project led by Dr. Alam Md. Jahangir. My work includes virtual screening against p62, protein–small-molecule simulations, and GUV preparation for experimental membrane studies.</p></div></article>
-      <article class="academic-entry"><p class="academic-dates">May 2024 — Oct 2025</p><div><h3>Research Assistant</h3><p class="academic-place">K. Alam Research Laboratory · Department of Physics · University of Barishal, Bangladesh</p><p>Worked with Dr. Md. Khorshed Alam on electroporation and small-molecule–membrane interactions using all-atom and coarse-grained molecular dynamics, and developed PDE models in MATLAB for molecular transport. Mentored junior researchers and collaborated across computational and experimental teams.</p></div></article>
-      <article class="academic-entry"><p class="academic-dates">Completed Jul 2023</p><div><h3>BSc in Physics</h3><p class="academic-place">University of Barishal, Bangladesh</p><p>Undergraduate training in physics provided the quantitative foundation for my later research in computational biophysics.</p></div></article>
-    </div>
-    <div class="experience-photos"><h3>Research in practice.</h3><PhotoGallery items={[photos.mbl[0], photos.karl[0]]} label="MBL and KARL research experience" /><a class="text-link album-link" href={sitePath('/gallery/#mbl')}>Explore laboratory work, training &amp; teams →</a></div>
-  </section>
-
-  <section class="container academic-section" id="recognition" aria-labelledby="recognition-title">
-    <div class="academic-section-heading"><p class="eyebrow">Recognition &amp; exchange</p><h2 id="recognition-title">Scientific experiences beyond publications.</h2></div>
-    <div class="academic-cards">
-      <article class="academic-card"><p class="eyebrow">2025 · Award</p><h3>Best Poster Presenter Award</h3><p>Bridging the Theoretical and Experimental Biophysicists in Bangladesh · Biophysical Society Networking Event, University of Barishal.</p></article>
-      <article class="academic-card"><p class="eyebrow">2024 · Award</p><h3>Best Paper Award</h3><p>National Conference on Physics for 21st Century, Khulna University.</p></article>
-      <article class="academic-card"><p class="eyebrow">2025 · Research exchange</p><h3>Sakura Science Exchange Program</h3><p>Kogakuin University, Japan · 25 February–3 March. Laboratory visits, scientific discussions, lectures, and a research presentation.</p></article>
-    </div>
-  </section>
-
-  <section class="container academic-section" id="sakura" aria-labelledby="sakura-title">
-    <div class="academic-section-heading"><p class="eyebrow">Sakura Science exchange</p><h2 id="sakura-title">Presenting, learning, exchanging.</h2></div>
-    <PhotoGallery items={photos.sakura.slice(0, 2)} label="Sakura Science exchange photographs" />
-    <a class="text-link album-link" href={sitePath('/gallery/#sakura')}>Explore the Sakura exchange album →</a>
-  </section>
-
-  <section class="container academic-section" id="conference-photos" aria-labelledby="conference-photos-title">
-    <div class="academic-section-heading"><p class="eyebrow">Academic highlights</p><h2 id="conference-photos-title">Sharing research in person.</h2></div>
-    <PhotoGallery items={photos.conferences.slice(0, 2)} label="Conference photographs" />
-    <a class="text-link album-link" href={sitePath('/gallery/#awards')}>Explore awards, talks &amp; the research community →</a>
-  </section>
-
-  <section class="container academic-section" id="communication" aria-labelledby="communication-title">
-    <div class="academic-section-heading"><p class="eyebrow">Communication &amp; service</p><h2 id="communication-title">Sharing and supporting research.</h2></div>
-    <div class="academic-dual">
-      <div>
-        <h3 id="presentations">Conference presentations</h3>
-        <ul class="academic-list">
-          <li><strong>Molecular Dynamics of the Hydrophobic–Hydrophilic Transition During Electroporation</strong><span>Oral · 12th International Conference on Physics in Medicine · University of Dhaka · October 2025</span></li>
-          <li><strong>Investigating Pore Stabilization Dynamics During Electroporation via MD Simulations</strong><span>Poster · Bridging the Theoretical and Experimental Biophysicists in Bangladesh · University of Barishal · April 2025</span></li>
-          <li><strong>Unraveling Amyloid Beta Clearance Mechanisms by ABCG2 Efflux pump in Alzheimer’s Disease using MD</strong><span>Oral · National Conference on Physics · University of Rajshahi · February 2025</span></li>
-          <li><strong>Simulation and Quantitative Analysis of Biomacromolecules Transport through Nanopores in an Electroporated GUV</strong><span>Oral · National Conference on Physics for 21st Century · Khulna University · May 2024</span></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Mentoring &amp; academic service</h3>
-        <ul class="academic-list">
-          <li><strong>Research mentoring</strong><span>Supported 5+ junior researchers in molecular dynamics, data interpretation, and manuscript preparation.</span></li>
-          <li><strong>Peer review</strong><span>Reviewed a manuscript for PLOS ONE in November 2025.</span></li>
-          <li><strong>Science outreach</strong><span>Participated in the NASA International Space Apps Challenge in October 2024. Led separate school awareness campaigns using interactive simulations to demonstrate environmental impacts.</span></li>
-          <li><strong>Student leadership</strong><span>Publicity Secretary, Barishal University Physics Student Welfare Association (2018–2019).</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="container academic-section" id="expertise" aria-labelledby="expertise-title">
-    <div class="academic-section-heading"><p class="eyebrow">Methods &amp; tools</p><h2 id="expertise-title">Computational and experimental experience.</h2></div>
-    <div class="academic-cards">
-      <article class="academic-card"><h3>Membrane &amp; molecular simulations</h3><p>All-atom and coarse-grained MD, electroporation, membrane transport, protein interactions.</p><p class="academic-tools">GROMACS · NAMD · VMD · MDAnalysis</p></article>
-      <article class="academic-card"><h3>Molecular modeling &amp; screening</h3><p>Protein structure prediction, molecular docking, chemical library preparation, and virtual screening.</p><p class="academic-tools">AutoDock Vina · RDKit · Meeko · AlphaFold · PyMOL</p></article>
-      <article class="academic-card"><h3>Numerical &amp; experimental methods</h3><p>Partial differential equations, numerical modeling, data analysis, GUV preparation, and confocal microscopy.</p><p class="academic-tools">MATLAB · COMSOL · fluorescence microscopy</p></article>
-    </div>
-  </section>
-
+  <section class="container academic-section" aria-labelledby="practice-title"><div class="academic-section-heading"><p class="eyebrow">Research life</p><h2 id="practice-title">Research in practice.</h2></div><PhotoGallery items={[photos.mbl[0], photos.karl[0]]} label="MBL and KARL research experience" /><a class="text-link album-link" href={sitePath('/gallery/#mbl')}>Laboratory work, training &amp; teams →</a></section>
+  <section class="container academic-section" id="sakura" aria-labelledby="sakura-title"><div class="academic-section-heading"><p class="eyebrow">Sakura Science</p><h2 id="sakura-title">Scientific exchange in Japan.</h2><p class="photo-gallery-note">Kogakuin University · Sakura Science Exchange Program · 2025</p></div><PhotoGallery items={photos.sakura.slice(0, 2)} label="Sakura Science exchange photographs" /><a class="text-link album-link" href={sitePath('/gallery/#sakura')}>Explore the exchange album →</a></section>
+  <section class="container academic-section" id="recognition" aria-labelledby="highlights-title"><div class="academic-section-heading"><p class="eyebrow">Academic highlights</p><h2 id="highlights-title">Conferences &amp; recognition.</h2></div><PhotoGallery items={awardPhotos} label="Conference awards" /><div class="theme-links album-link"><a class="text-link" href={sitePath('/gallery/#awards')}>Awards &amp; conference photographs →</a><a class="text-link" id="presentations" href={sitePath('/publications/#presentations')}>Selected conference presentations →</a></div></section>
   <section class="container contact-section" id="contact">
     <div><p class="eyebrow">Contact</p><h2>Start a conversation.</h2><p>For research discussions, collaborations, and professional inquiries.</p></div>
     <div class="contact-details"><a href={`mailto:${profile.email}`}>{profile.email} ↗</a><a href={`mailto:${profile.secondaryEmail}`}>{profile.secondaryEmail} ↗</a><a href={`tel:${profile.phoneHref}`}>{profile.phone}</a><div class="profile-links">{profile.profiles.map(p=><a href={p.url} target="_blank" rel="noreferrer">{p.label} ↗</a>)}</div></div>

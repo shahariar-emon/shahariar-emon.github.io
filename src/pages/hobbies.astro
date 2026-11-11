@@ -1,15 +1,26 @@
 ---
-import { sitePath } from "../utils/paths";
+import { sitePath } from '../utils/paths';
 import Base from '../layouts/Base.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import { photos } from '../data/photos';
+import { photographyAlbums } from '../data/albums';
 ---
-<Base title="Beyond research · Music & photography" active="Beyond research" description="Music and photography: a glimpse of Shahariar Emon's interests beyond academic research.">
-<section class="container page-intro hobbies-intro"><p class="eyebrow">Beyond research</p><h1>A different kind<br/><span>of curiosity.</span></h1><p class="lead">Away from research, I enjoy music and photography. This is a small space for that side of my life.</p></section>
-<section class="container hobbies-grid" aria-label="Personal interests">
-<article class="hobby"><PhotoGallery items={photos.music} label="Music performance" /><div class="hobby-text"><p class="eyebrow">Music</p><h2>Making room<br/>for music.</h2><p>I play guitar and sing, with a particular love for classic rock, metal, and progressive rock.</p><p class="hobby-detail">On my listening list</p><ul class="band-list"><li>Led Zeppelin</li><li>Tool</li><li>System of a Down</li><li>Pink Floyd</li><li>Porcupine Tree</li></ul></div></article>
-<article class="hobby"><PhotoGallery items={photos.photography.slice(0, 1)} label="Photography introduction" /><div class="hobby-text"><p class="eyebrow">Photography</p><h2>Looking through<br/>another lens.</h2><p>My interests include straight and street photography, alongside nature and scenic beauty. I enjoy exploring both everyday scenes and the natural world through the camera.</p><div class="interest-list"><span>Straight photography</span><span>Street photography</span><span>Nature & landscapes</span></div></div></article>
-</section>
-<section class="container academic-section" aria-labelledby="photographs-title"><div class="academic-section-heading"><p class="eyebrow">Photography</p><h2 id="photographs-title">Small observations.</h2><p class="photo-gallery-note">A selection of my photographs. Select an image to view it in its original colour.</p></div><PhotoGallery items={photos.photography.slice(1)} label="Selected photography" /></section>
-<section class="container hobbies-outro"><div><p class="eyebrow">Stay connected</p><h2>Science, and everything around it.</h2></div><a class="button" href={sitePath("/about/#contact")}>Get in touch ↗</a></section>
+<Base title="Beyond research · Music, photography & travel" active="Beyond research" description="Music performances, photography and travel: Shahariar Emon's interests beyond academic research.">
+  <section class="container page-intro hobbies-intro">
+    <p class="eyebrow">Beyond research</p><h1>A different kind<br/><span>of curiosity.</span></h1>
+    <p class="lead">Away from research, I enjoy music and photography. This is a small space for that side of my life.</p>
+    <div class="album-nav" role="navigation" aria-label="Personal interests"><a href="#music">Music &amp; performance</a><a href="#photography">Photography</a><a href="#travel">Travel &amp; exchange</a></div>
+  </section>
+  <section class="container academic-section" id="music" aria-labelledby="music-title">
+    <div class="academic-section-heading"><p class="eyebrow">Music &amp; performance</p><h2 id="music-title">Making room for music.</h2><p class="photo-gallery-note">I play guitar and sing, with a particular love for classic rock, metal, and progressive rock.</p><p class="hobby-detail">On my listening list</p><ul class="band-list"><li>Led Zeppelin</li><li>Tool</li><li>System of a Down</li><li>Pink Floyd</li><li>Porcupine Tree</li></ul></div>
+    <PhotoGallery items={photos.music} label="Physics Day performances" />
+  </section>
+  <section class="container academic-section" id="photography" aria-labelledby="photography-title">
+    <div class="academic-section-heading"><p class="eyebrow">Photography</p><h2 id="photography-title">Looking through another lens.</h2><p class="photo-gallery-note">My interests include straight and street photography, alongside nature and scenic beauty.</p></div>
+    <div class="album-cards">{photographyAlbums.map(album => <article><PhotoGallery items={album.items.slice(0, 1)} label={`${album.title} preview`} /><h3>{album.title}</h3><a class="text-link" href={sitePath(`/photography/#${album.id}`)}>Explore {album.items.length} photographs →</a></article>)}</div>
+  </section>
+  <section class="container academic-section" id="travel" aria-labelledby="travel-title">
+    <div class="travel-feature"><div><p class="eyebrow">Travel &amp; exchange</p><h2 id="travel-title">Beyond the laboratory.</h2><p class="photo-gallery-note">A moment from my visit to Japan for the Sakura Science Exchange Program.</p><a class="text-link album-link" href={sitePath('/gallery/#sakura')}>See the research exchange photographs →</a></div><PhotoGallery items={photos.travel} label="Travel in Japan" /></div>
+  </section>
+  <section class="container hobbies-outro"><div><p class="eyebrow">Stay connected</p><h2>Science, and everything around it.</h2></div><a class="button" href={sitePath('/about/#contact')}>Get in touch ↗</a></section>
 </Base>

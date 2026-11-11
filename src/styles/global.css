@@ -68,3 +68,17 @@
 .experience-photos{margin-top:42px}.experience-photos>h3{font-size:26px;margin-bottom:26px}
 .photo-gallery-note{margin-top:20px;font-size:14px;color:var(--sub)}
 @media(max-width:650px){.photo-gallery{grid-template-columns:1fr;gap:28px}.hobby .portfolio-photo img{max-height:none}}
+
+/* Photo album navigation and previews */
+.album-back{margin-bottom:30px}.album-link{margin-top:24px}
+.album-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;align-items:stretch}
+.album-nav a{border:1px solid var(--line);padding:12px 16px;font-size:13px;line-height:1.5}
+.album-nav a:hover{background:var(--white)}.album-nav span{margin-left:10px;color:var(--sub)}
+.album-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.album-cards .photo-gallery,.travel-feature .photo-gallery{grid-template-columns:1fr}
+.album-cards .portfolio-photo img{height:300px;object-fit:contain}
+.album-cards h3{font-size:24px;margin:24px 0 14px;line-height:1.2}
+.travel-feature{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#music .portfolio-photo img{height:420px;object-fit:contain}
+@media(max-width:800px){.album-cards{grid-template-columns:1fr}.album-cards article{max-width:560px}.album-cards .portfolio-photo img{height:auto}.travel-feature{grid-template-columns:1fr;gap:28px}}
+@media(max-width:650px){#music .portfolio-photo img{height:auto}}

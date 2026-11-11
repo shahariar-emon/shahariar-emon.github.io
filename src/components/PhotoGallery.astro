@@ -1,0 +1,20 @@
+---
+import { sitePath } from '../utils/paths';
+interface Photo { slug: string; caption: string; width: number; height: number; smallWidth: number; }
+interface Props { items: readonly Photo[]; label: string; }
+const { items, label } = Astro.props;
+const imagePath = (slug: string, size: number) => sitePath(`/images/portfolio/${slug}-${size}.webp`);
+---
+<div class="photo-gallery" aria-label={label}>
+  {items.map(photo => (
+    <figure class="portfolio-photo">
+      <a href={imagePath(photo.slug, 1280)} aria-label={`View photograph: ${photo.caption}`}>
+        <img src={imagePath(photo.slug, 1280)}
+          srcset={`${imagePath(photo.slug, 480)} ${photo.smallWidth}w, ${imagePath(photo.slug, 1280)} ${photo.width}w`}
+          sizes="(max-width: 650px) calc(100vw - 48px), (max-width: 1000px) 44vw, 560px"
+          width={photo.width} height={photo.height} alt={photo.caption} loading="lazy" decoding="async" />
+      </a>
+      <figcaption>{photo.caption}</figcaption>
+    </figure>
+  ))}
+</div>

@@ -2,6 +2,8 @@
 import { sitePath } from "../utils/paths";
 import Base from '../layouts/Base.astro';
 import Portrait from '../components/Portrait.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import { photos } from '../data/photos';
 import { profile } from '../data/profile';
 ---
 <Base title="About & contact" active="About" description="Academic background, research appointments, skills, scientific communication, and contact information for Shahariar Emon.">
@@ -42,6 +44,7 @@ import { profile } from '../data/profile';
       <article class="academic-entry"><p class="academic-dates">May 2024 — Oct 2025</p><div><h3>Research Assistant</h3><p class="academic-place">K. Alam Research Laboratory · Department of Physics · University of Barishal, Bangladesh</p><p>Worked with Dr. Md. Khorshed Alam on electroporation and small-molecule–membrane interactions using all-atom and coarse-grained molecular dynamics, and developed PDE models in MATLAB for molecular transport. Mentored junior researchers and collaborated across computational and experimental teams.</p></div></article>
       <article class="academic-entry"><p class="academic-dates">Completed Jul 2023</p><div><h3>BSc in Physics</h3><p class="academic-place">University of Barishal, Bangladesh</p><p>Undergraduate training in physics provided the quantitative foundation for my later research in computational biophysics.</p></div></article>
     </div>
+    <div class="experience-photos"><h3>Research in practice.</h3><PhotoGallery items={[...photos.mbl, ...photos.karl]} label="MBL and KARL research experience" /></div>
   </section>
 
   <section class="container academic-section" id="recognition" aria-labelledby="recognition-title">
@@ -51,6 +54,16 @@ import { profile } from '../data/profile';
       <article class="academic-card"><p class="eyebrow">2024 · Award</p><h3>Best Paper Award</h3><p>National Conference on Physics for 21st Century, Khulna University.</p></article>
       <article class="academic-card"><p class="eyebrow">2025 · Research exchange</p><h3>Sakura Science Exchange Program</h3><p>Kogakuin University, Japan · 25 February–3 March. Laboratory visits, scientific discussions, lectures, and a research presentation.</p></article>
     </div>
+  </section>
+
+  <section class="container academic-section" id="sakura" aria-labelledby="sakura-title">
+    <div class="academic-section-heading"><p class="eyebrow">Sakura Science exchange</p><h2 id="sakura-title">Presenting, learning, exchanging.</h2></div>
+    <PhotoGallery items={photos.sakura} label="Sakura Science exchange photographs" />
+  </section>
+
+  <section class="container academic-section" id="conference-photos" aria-labelledby="conference-photos-title">
+    <div class="academic-section-heading"><p class="eyebrow">Academic highlights</p><h2 id="conference-photos-title">Sharing research in person.</h2></div>
+    <PhotoGallery items={photos.conferences} label="Conference photographs" />
   </section>
 
   <section class="container academic-section" id="communication" aria-labelledby="communication-title">

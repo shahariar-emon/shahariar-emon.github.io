@@ -14,7 +14,9 @@ export const publications = [
     "image": "semdock-abstract.webp",
     "bibtex": "@article{emon2026semdock,\n  title={An extension of jamdock-suite for virtual screening from raw chemical datasets},\n  author={Emon, Shahariar and Haque, Md Mozzammel and Alam, Iftekhar and Haque, Md Anwarul and Alam, Jahangir Md},\n  journal={STAR Protocols},\n  year={2026},\n  volume={7},\n  number={3},\n  pages={104822},\n  doi={10.1016/j.xpro.2026.104822}\n}",
     "featured": true,
-    "firstAuthor": true
+    "themes": [
+      "protein-interactions"
+    ]
   },
   {
     "id": "multivesicular-vesicles",
@@ -28,10 +30,12 @@ export const publications = [
     "summary": "COMSOL simulations explore how pore size and vesicle compartmentalization influence molecular delivery.",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
     "image": null,
-    "bibtex": "@article{multivesicularvesicles2026,\n  title={Simulation of intracellular delivery through permeabilized multivesicular vesicles},\n  author={Anna, Shah Sajnin and Emon, Shahariar and Asaduzzaman, Md. and Saha, Shovon and Rahman, Md. Atikur and Karal, Mohammad Abu Sayem and Hossen, Md Lokman and Saha, Samiron Kumar and Takaba, Hiromitsu and Akhtaruzzaman, Md. and Alam, Md. Khorshed},\n  journal={European Biophysics Journal},\n  year={2026},\n  volume={55},\n  pages={89--99},\n  doi={10.1007/s00249-026-01819-6},\n  number={1}\n}"
+    "bibtex": "@article{multivesicularvesicles2026,\n  title={Simulation of intracellular delivery through permeabilized multivesicular vesicles},\n  author={Anna, Shah Sajnin and Emon, Shahariar and Asaduzzaman, Md. and Saha, Shovon and Rahman, Md. Atikur and Karal, Mohammad Abu Sayem and Hossen, Md Lokman and Saha, Samiron Kumar and Takaba, Hiromitsu and Akhtaruzzaman, Md. and Alam, Md. Khorshed},\n  journal={European Biophysics Journal},\n  year={2026},\n  volume={55},\n  pages={89--99},\n  doi={10.1007/s00249-026-01819-6},\n  number={1}\n}",
+    "themes": [
+      "transport"
+    ]
   },
   {
     "id": "perovskite-solar-cells",
@@ -45,10 +49,12 @@ export const publications = [
     "summary": "Numerical simulation and machine learning for the optimization of lead-free perovskite solar cells.",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
     "image": null,
-    "bibtex": "@article{perovskitesolarcells2026,\n  title={Efficiency enhancement of lead-free CH3NH3SnI3 perovskite solar cells using SCAPS-1D simulation and machine learning optimization},\n  author={Sagor, Md Nurnabe and Miah, Rayhan and Emon, Shahariar and Alom, Keya and Takaba, Hiromitsu and Ahmed, Sheikh Rashel Al and Akhtaruzzaman, Md. and Alam, Md. Khorshed},\n  journal={Next Materials},\n  year={2026},\n  volume={13},\n  pages={103267},\n  doi={10.1016/j.nxmate.2026.103267}\n}"
+    "bibtex": "@article{perovskitesolarcells2026,\n  title={Efficiency enhancement of lead-free CH3NH3SnI3 perovskite solar cells using SCAPS-1D simulation and machine learning optimization},\n  author={Sagor, Md Nurnabe and Miah, Rayhan and Emon, Shahariar and Alom, Keya and Takaba, Hiromitsu and Ahmed, Sheikh Rashel Al and Akhtaruzzaman, Md. and Alam, Md. Khorshed},\n  journal={Next Materials},\n  year={2026},\n  volume={13},\n  pages={103267},\n  doi={10.1016/j.nxmate.2026.103267}\n}",
+    "themes": [
+      "materials"
+    ]
   },
   {
     "id": "electroporation",
@@ -65,7 +71,10 @@ export const publications = [
     "image": "electroporation-figure-4.webp",
     "bibtex": "@article{emon2025electroporation,\n  title={Optimizing electroporation via pulse modulation: a molecular dynamics study},\n  author={Emon, Shahariar and Amin, Al and Hossain, Md and Saha, Shovon and Asaduzzaman, Md and Hossen, Md Lokman and Karal, Mohammad Abu Sayem and Takaba, Hiromitsu and Alam, Md Khorshed},\n  journal={European Biophysics Journal},\n  year={2025},\n  volume={54},\n  number={7},\n  pages={477--490},\n  doi={10.1007/s00249-025-01793-5}\n}",
     "featured": true,
-    "firstAuthor": true
+    "themes": [
+      "permeabilization",
+      "transport"
+    ]
   },
   {
     "id": "molecular-transport",
@@ -80,9 +89,12 @@ export const publications = [
     "project": "/research/molecular-transport/",
     "image": "transport-figure-2.webp",
     "featured": true,
-    "firstAuthor": true,
     "type": "Research article",
-    "bibtex": "@article{moleculartransport2025,\n  title={Molecular dynamics of electroporation and quantitative analysis of molecular transport},\n  author={Emon, Shahariar and Sakib, Sadman and Bardhan, Niloy and Saha, Shovon and Asaduzzaman, Md. and Alam, Md. Khorshed},\n  journal={Journal of Biological Physics},\n  year={2025},\n  volume={51},\n  pages={18},\n  doi={10.1007/s10867-025-09682-w}\n}"
+    "bibtex": "@article{moleculartransport2025,\n  title={Molecular dynamics of electroporation and quantitative analysis of molecular transport},\n  author={Emon, Shahariar and Sakib, Sadman and Bardhan, Niloy and Saha, Shovon and Asaduzzaman, Md. and Alam, Md. Khorshed},\n  journal={Journal of Biological Physics},\n  year={2025},\n  volume={51},\n  pages={18},\n  doi={10.1007/s10867-025-09682-w}\n}",
+    "themes": [
+      "permeabilization",
+      "transport"
+    ]
   },
   {
     "id": "multipore-transport",
@@ -96,10 +108,12 @@ export const publications = [
     "summary": "Modeling molecular diffusion through multiple membrane nanopores in giant unilamellar vesicles.",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
     "image": null,
-    "bibtex": "@article{multiporetransport2025,\n  title={Molecular transport through nano-sized multipores of lipid vesicles: a COMSOL simulation study},\n  author={Asaduzzaman, Md. and Emon, Shahariar and Ishtiaque, Md. Saif and Hossain, Md. Imran and Karal, Mahammad Abu Sayem and Billah, Md. Masum and Takaba, Hiromitsu and Alam, Md. Khorshed},\n  journal={European Biophysics Journal},\n  year={2025},\n  volume={54},\n  pages={159--169},\n  doi={10.1007/s00249-025-01745-z}\n}"
+    "bibtex": "@article{multiporetransport2025,\n  title={Molecular transport through nano-sized multipores of lipid vesicles: a COMSOL simulation study},\n  author={Asaduzzaman, Md. and Emon, Shahariar and Ishtiaque, Md. Saif and Hossain, Md. Imran and Karal, Mahammad Abu Sayem and Billah, Md. Masum and Takaba, Hiromitsu and Alam, Md. Khorshed},\n  journal={European Biophysics Journal},\n  year={2025},\n  volume={54},\n  pages={159--169},\n  doi={10.1007/s00249-025-01745-z}\n}",
+    "themes": [
+      "transport"
+    ]
   },
   {
     "id": "lithium-peroxide",
@@ -113,10 +127,12 @@ export const publications = [
     "summary": "First-principles molecular dynamics applied to lithium peroxide decomposition in a battery cathode.",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
     "image": null,
-    "bibtex": "@article{lithiumperoxide2025,\n  title={Understanding the Decomposition Mechanism of Li2O2 in the Cathode of Li-O2 Battery with First Principles Molecular Dynamics},\n  author={Alam, Md. Khorshed and Emon, Shahariar and Takaba, Hiromitsu},\n  journal={Physical Chemistry Research},\n  year={2025},\n  volume={13},\n  pages={677--686},\n  doi={10.22036/pcr.2025.512159.2655},\n  number={4}\n}"
+    "bibtex": "@article{lithiumperoxide2025,\n  title={Understanding the Decomposition Mechanism of Li2O2 in the Cathode of Li-O2 Battery with First Principles Molecular Dynamics},\n  author={Alam, Md. Khorshed and Emon, Shahariar and Takaba, Hiromitsu},\n  journal={Physical Chemistry Research},\n  year={2025},\n  volume={13},\n  pages={677--686},\n  doi={10.22036/pcr.2025.512159.2655},\n  number={4}\n}",
+    "themes": [
+      "materials"
+    ]
   },
   {
     "id": "nanopore-size",
@@ -131,9 +147,11 @@ export const publications = [
     "topic": "Membrane biophysics",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
-    "image": null
+    "image": null,
+    "themes": [
+      "transport"
+    ]
   },
   {
     "id": "asymmetric-multipores",
@@ -148,8 +166,10 @@ export const publications = [
     "topic": "Membrane biophysics",
     "type": "Research article",
     "featured": false,
-    "firstAuthor": false,
     "project": null,
-    "image": null
+    "image": null,
+    "themes": [
+      "transport"
+    ]
   }
 ];

@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import { photographyAlbums } from '../data/albums';
+import { sitePath } from '../utils/paths';
+---
+<Base title="Photography" active="Beyond research" description="Selected photography by Shahariar Emon: nature, street scenes, architecture and changing light.">
+  <section class="container page-intro">
+    <a class="text-link album-back" href={sitePath('/hobbies/')}>← Beyond research</a>
+    <p class="eyebrow">Photography</p><h1>Small observations.<br/><span>Different perspectives.</span></h1>
+    <p class="lead">A selection of my photographs, from everyday street scenes to details in nature and the changing sky.</p>
+    <p class="photo-gallery-note">Select a photograph to view it in its original colour.</p>
+    <div class="album-nav" role="navigation" aria-label="Photography categories">{photographyAlbums.map(album => <a href={`#${album.id}`}>{album.title} <span>{album.items.length}</span></a>)}</div>
+  </section>
+  {photographyAlbums.map(album => <section class="container academic-section" id={album.id} aria-labelledby={`${album.id}-title`}>
+    <div class="academic-section-heading"><p class="eyebrow">Photography · {album.items.length} photographs</p><h2 id={`${album.id}-title`}>{album.title}</h2><p class="photo-gallery-note">{album.description}</p></div>
+    <PhotoGallery items={album.items} label={album.title} />
+  </section>)}
+</Base>

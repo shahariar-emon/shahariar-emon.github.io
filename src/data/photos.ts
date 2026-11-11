@@ -6,6 +6,13 @@ export const photos = {
       "width": 853,
       "height": 1280,
       "smallWidth": 320
+    },
+    {
+      "slug": "physics-day-ensemble",
+      "caption": "The ensemble performing at Physics Day, 2022.",
+      "width": 1280,
+      "height": 720,
+      "smallWidth": 480
     }
   ],
   "photography": [
@@ -64,6 +71,34 @@ export const photos = {
       "width": 1044,
       "height": 1280,
       "smallWidth": 391
+    },
+    {
+      "slug": "street-afternoon",
+      "caption": "Pedestrians and cycles along a sunlit street.",
+      "width": 1280,
+      "height": 960,
+      "smallWidth": 480
+    },
+    {
+      "slug": "shop-window",
+      "caption": "Figurines in a shop window.",
+      "width": 1280,
+      "height": 960,
+      "smallWidth": 480
+    },
+    {
+      "slug": "moon-and-clouds",
+      "caption": "Moonlight through textured clouds above the trees.",
+      "width": 1280,
+      "height": 1280,
+      "smallWidth": 480
+    },
+    {
+      "slug": "rooftop-dusk",
+      "caption": "The last light above a rooftop skyline.",
+      "width": 1280,
+      "height": 960,
+      "smallWidth": 480
     }
   ],
   "mbl": [
@@ -73,6 +108,27 @@ export const photos = {
       "width": 1280,
       "height": 959,
       "smallWidth": 480
+    },
+    {
+      "slug": "microscopy-team",
+      "caption": "The MBL group with super-resolution microscopy trainers.",
+      "width": 1280,
+      "height": 961,
+      "smallWidth": 480
+    },
+    {
+      "slug": "microscope-imaging",
+      "caption": "Imaging with a Leica Stellaris 8 microscope.",
+      "width": 961,
+      "height": 1280,
+      "smallWidth": 360
+    },
+    {
+      "slug": "culture-training",
+      "caption": "Bacterial culture training at MBL.",
+      "width": 1280,
+      "height": 853,
+      "smallWidth": 480
     }
   ],
   "karl": [
@@ -81,6 +137,13 @@ export const photos = {
       "caption": "Presenting research in a KARL collaborative meeting.",
       "width": 1280,
       "height": 960,
+      "smallWidth": 480
+    },
+    {
+      "slug": "karl-team",
+      "caption": "The KARL research group.",
+      "width": 1250,
+      "height": 937,
       "smallWidth": 480
     }
   ],
@@ -98,6 +161,34 @@ export const photos = {
       "width": 1280,
       "height": 927,
       "smallWidth": 480
+    },
+    {
+      "slug": "exchange-group",
+      "caption": "With the Takaba Lab group after the presentations.",
+      "width": 1280,
+      "height": 853,
+      "smallWidth": 480
+    },
+    {
+      "slug": "exchange-lab-visit",
+      "caption": "A laboratory visit during the Sakura Science exchange.",
+      "width": 1280,
+      "height": 960,
+      "smallWidth": 480
+    },
+    {
+      "slug": "kogakuin-library",
+      "caption": "Visiting the library at Kogakuin University.",
+      "width": 1280,
+      "height": 854,
+      "smallWidth": 480
+    },
+    {
+      "slug": "exchange-discussion",
+      "caption": "A research discussion during the Sakura Science exchange.",
+      "width": 1273,
+      "height": 945,
+      "smallWidth": 480
     }
   ],
   "conferences": [
@@ -113,6 +204,50 @@ export const photos = {
       "caption": "Discussing a poster at the Bridging the Theoretical and Experimental Biophysicists event.",
       "width": 1280,
       "height": 853,
+      "smallWidth": 480
+    },
+    {
+      "slug": "conference-community",
+      "caption": "With colleagues at the National Conference on Physics, February 2025.",
+      "width": 1280,
+      "height": 960,
+      "smallWidth": 480
+    },
+    {
+      "slug": "best-poster-award",
+      "caption": "Receiving the Best Poster Presenter Award at the biophysics networking event.",
+      "width": 1280,
+      "height": 853,
+      "smallWidth": 480
+    },
+    {
+      "slug": "physics-talk",
+      "caption": "Presenting research at the National Conference on Physics, February 2025.",
+      "width": 1280,
+      "height": 961,
+      "smallWidth": 480
+    },
+    {
+      "slug": "ttm-presentation",
+      "caption": "Presenting research at the Think Tank Meeting, December 2025.",
+      "width": 1106,
+      "height": 829,
+      "smallWidth": 480
+    },
+    {
+      "slug": "ttm-discussion",
+      "caption": "A group discussion at the MBL Think Tank Meeting, December 2025.",
+      "width": 1280,
+      "height": 963,
+      "smallWidth": 480
+    }
+  ],
+  "travel": [
+    {
+      "slug": "odaiba-visit",
+      "caption": "A moment at Odaiba Park during the Japan visit.",
+      "width": 1128,
+      "height": 1128,
       "smallWidth": 480
     }
   ]

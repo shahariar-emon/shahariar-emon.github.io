@@ -1,4 +1,5 @@
 import { publications } from './publications';
+import type { FigureId } from './figures';
 
 export const researchThemes = [
   {
@@ -8,9 +9,7 @@ export const researchThemes = [
     ongoing: 'I am extending this question to permeabilization driven by small molecules and their interactions with the membrane.',
     papers: ['electroporation', 'molecular-transport'],
     links: [{ label: 'Pulse modulation study', href: '/research/electroporation/' }],
-    image: 'electroporation-figure-4.webp', alt: 'Molecular snapshots showing the evolution of an electropore',
-    imageCaption: 'Pore evolution under an applied electric field · Emon et al., 2025',
-    imageDoi: '10.1007/s00249-025-01793-5',
+    visual: 'membrane-water-channel' as FigureId,
   },
   {
     id: 'transport', number: '02', title: 'Transport across permeabilized membranes',
@@ -19,9 +18,7 @@ export const researchThemes = [
     ongoing: null,
     papers: ['molecular-transport', 'multivesicular-vesicles', 'multipore-transport'],
     links: [{ label: 'Molecular dynamics & diffusion study', href: '/research/molecular-transport/' }, { label: 'All transport publications', href: '/publications/?theme=transport' }],
-    image: 'transport-figure-5.webp', alt: 'Modeled transport and concentration profiles for glucose, calcein and bleomycin',
-    imageCaption: 'Molecular size and transport kinetics · Emon et al., 2025',
-    imageDoi: '10.1007/s10867-025-09682-w',
+    visual: 'transport-model' as FigureId,
   },
   {
     id: 'protein-interactions', number: '03', title: 'Protein–small-molecule interactions',
@@ -30,9 +27,7 @@ export const researchThemes = [
     ongoing: 'Current work examines small-molecule effects on protein behavior in the context of autophagy and cancer. The aim is to connect molecular interactions with biological function.',
     papers: ['semdock'],
     links: [{ label: 'Read about the screening workflow', href: '/research/semdock/' }, { label: 'Explore the software', href: '/software/' }],
-    image: 'semdock-figure-3.webp', alt: 'Docking poses and structural comparisons across protein targets',
-    imageCaption: 'Candidate protein–ligand interactions · STAR Protocols, 2026',
-    imageDoi: '10.1016/j.xpro.2026.104822',
+    visual: 'protein-small-molecule' as FigureId,
   },
 ];
 

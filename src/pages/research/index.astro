@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ScientificFigure from '../../components/ScientificFigure.astro';
 import { sitePath } from '../../utils/paths';
 import { researchThemes, papersFor } from '../../data/research';
 ---
@@ -14,7 +15,8 @@ import { researchThemes, papersFor } from '../../data/research';
     <div class="theme-body"><div class="theme-copy"><h3>{theme.question}</h3><p>{theme.description}</p>
       {theme.ongoing && <p class="ongoing-work"><strong>Ongoing work</strong>{theme.ongoing}</p>}
       <div class="theme-links">{theme.links.map(link => <a class="text-link" href={sitePath(link.href)}>{link.label} →</a>)}</div>
-    </div><figure class="theme-figure"><a href={sitePath(`/images/${theme.image}`)} data-figure data-alt={theme.alt} data-caption={theme.imageCaption}><img src={sitePath(`/images/${theme.image}`)} alt={theme.alt} width="720" height="480" loading="lazy" /></a><figcaption>{theme.imageCaption} · <a href={`https://doi.org/${theme.imageDoi}`} target="_blank" rel="noreferrer">Source ↗</a></figcaption></figure></div>
+    </div><ScientificFigure id={theme.visual} class="theme-science" /></div>
+    {theme.id === 'transport' && <details class="transport-visuals"><summary>Explore transport simulations</summary><div class="transport-visual-grid"><ScientificFigure id="transport-near-pore" /><ScientificFigure id="transport-comsol" /></div></details>}
     <div class="theme-publications"><h3>Selected publications</h3><ul>{papersFor(theme.papers).map(p => <li><a href={`https://doi.org/${p.doi}`} target="_blank" rel="noreferrer">{p.title} <span aria-hidden="true">↗</span></a><span>{p.journal} · {p.year}</span></li>)}</ul></div>
   </section>)}
   <section class="container research-exit"><a class="button" href={sitePath('/publications/')}>Browse all publications →</a><a class="text-link" href={sitePath('/software/')}>Explore research software →</a></section>

@@ -1,0 +1,23 @@
+---
+import { sitePath } from '../utils/paths';
+import { figures, type FigureId } from '../data/figures';
+interface Props { id: FigureId; eager?: boolean; class?: string; }
+const { id, eager = false, class: className } = Astro.props;
+const figure = figures[id];
+---
+<figure class:list={['science-figure', className]}>
+  <a href={sitePath(figure.full)} data-figure data-alt={figure.alt} data-caption={figure.caption} aria-label={`Enlarge figure: ${figure.alt}`}>
+    <img src={sitePath(figure.src)} srcset={`${sitePath(figure.src)} ${figure.smallWidth}w, ${sitePath(figure.full)} ${figure.width}w`}
+      sizes="(max-width: 650px) calc(100vw - 40px), (max-width: 1000px) 44vw, 580px"
+      width={figure.width} height={figure.height} alt={figure.alt}
+      loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
+  </a>
+  <figcaption>{figure.caption} <span aria-hidden="true">↗</span></figcaption>
+</figure>
+<style>
+  .science-figure{min-width:0}
+  .science-figure>a{display:block;background:#fff;border:1px solid var(--line);padding:12px}
+  .science-figure img{display:block;width:100%;height:auto;object-fit:contain}
+  .science-figure figcaption{font-size:12px;color:var(--sub);line-height:1.6;margin-top:12px}
+  .science-figure figcaption span{margin-left:6px}
+</style>

@@ -18,7 +18,7 @@ export const photos = {
   "photography": [
     {
       "slug": "tree-and-sky",
-      "caption": "A lone tree beneath a textured sky.",
+      "caption": "A tree against the sky.",
       "width": 959,
       "height": 1280,
       "smallWidth": 360
@@ -32,21 +32,21 @@ export const photos = {
     },
     {
       "slug": "caterpillar",
-      "caption": "A caterpillar resting on a leaf.",
+      "caption": "A caterpillar eating a leaf.",
       "width": 1280,
       "height": 960,
       "smallWidth": 480
     },
     {
       "slug": "tree-and-building",
-      "caption": "Branches against a white building.",
+      "caption": "A tree outside a building in Japan.",
       "width": 1239,
       "height": 1280,
       "smallWidth": 465
     },
     {
       "slug": "moth-and-mesh",
-      "caption": "A moth against a geometric mesh.",
+      "caption": "A moth on a mosquito net.",
       "width": 1004,
       "height": 1280,
       "smallWidth": 376
@@ -60,7 +60,7 @@ export const photos = {
     },
     {
       "slug": "flowers",
-      "caption": "Flowers among dense green leaves.",
+      "caption": "Water hyacinths in bloom.",
       "width": 1280,
       "height": 959,
       "smallWidth": 480
@@ -201,7 +201,7 @@ export const photos = {
     },
     {
       "slug": "poster-discussion",
-      "caption": "Discussing a poster at the Bridging the Theoretical and Experimental Biophysicists event.",
+      "caption": "Discussing my poster at the Bridging the Theoretical and Experimental Biophysicists in Bangladesh event, University of Barishal, April 2025.",
       "width": 1280,
       "height": 853,
       "smallWidth": 480
@@ -215,7 +215,7 @@ export const photos = {
     },
     {
       "slug": "best-poster-award",
-      "caption": "Receiving the Best Poster Presenter Award at the biophysics networking event.",
+      "caption": "Receiving the Best Poster Presenter Award at the biophysics networking event, University of Barishal, April 2025.",
       "width": 1280,
       "height": 853,
       "smallWidth": 480

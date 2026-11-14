@@ -2,4 +2,4 @@
 import { sitePath } from "../utils/paths";
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Page not found"><section class="container page-intro"><p class="eyebrow">404 / Page not found</p><h1>A small detour.</h1><p class="lead">This page may have moved. Explore the research or return to the homepage.</p><a class="button" href={sitePath("/")}>Back to the homepage →</a></section></Base>
+<Base title="Page not found" noIndex><section class="container page-intro"><p class="eyebrow">404 / Page not found</p><h1>A small detour.</h1><p class="lead">This page may have moved. You can return to the homepage or browse the research.</p><a class="button" href={sitePath("/")}>Back to the homepage →</a> <a class="text-link" href={sitePath("/research/")}>Browse research →</a></section></Base>

@@ -5,10 +5,10 @@ interface Props { items: readonly Photo[]; label: string; }
 const { items, label } = Astro.props;
 const imagePath = (slug: string, size: number) => sitePath(`/images/portfolio/${slug}-${size}.webp`);
 ---
-<div class="photo-gallery" aria-label={label}>
+<div class="photo-gallery" role="group" aria-label={label}>
   {items.map(photo => (
     <figure class="portfolio-photo">
-      <a href={imagePath(photo.slug, 1280)} aria-label={`View photograph: ${photo.caption}`}>
+      <a href={imagePath(photo.slug, 1280)} data-photo data-caption={photo.caption} aria-label={`Enlarge photograph: ${photo.caption}`}>
         <img src={imagePath(photo.slug, 1280)}
           srcset={`${imagePath(photo.slug, 480)} ${photo.smallWidth}w, ${imagePath(photo.slug, 1280)} ${photo.width}w`}
           sizes="(max-width: 650px) calc(100vw - 48px), (max-width: 1000px) 44vw, 560px"

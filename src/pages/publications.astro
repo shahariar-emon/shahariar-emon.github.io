@@ -1,15 +1,62 @@
 ---
 import Base from '../layouts/Base.astro';import Publication from '../components/Publication.astro';import {publications} from '../data/publications';import {profile} from '../data/profile';
 ---
-<Base title="Publications" active="Publications"><section class="container page-intro"><p class="eyebrow">Publications</p><h1>Research in print.<br/><span>Ideas in practice.</span></h1><p class="lead">Articles and protocols on membrane permeabilization, molecular transport and protein interactions, alongside earlier materials research.</p><a class="text-link" href={profile.profiles[0].url} target="_blank" rel="noreferrer">Full publication record on Google Scholar ↗</a></section><section class="container publication-section"><div class="filter-bar"><div role="group" aria-label="Filter publications by research area"><button class="filter active" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="permeabilization" aria-pressed="false">Membrane permeabilization</button><button class="filter" data-filter="transport" aria-pressed="false">Molecular transport</button><button class="filter" data-filter="protein-interactions" aria-pressed="false">Protein–small-molecule interactions</button><button class="filter" data-filter="materials" aria-pressed="false">Materials &amp; energy</button></div><label class="search-label"><span class="sr-only">Search publications</span><input type="search" id="pub-search" placeholder="Search publications…"/></label></div><p class="small muted" id="result-count" aria-live="polite">{publications.length} publications</p>{publications.map(p=><Publication p={p} full/>)}<p id="no-results" hidden>No publications match this search. Try another term or select All.</p></section><section class="container presentation-section" id="presentations" aria-labelledby="presentations-title"><h2 id="presentations-title">Conference presentations</h2><details class="presentation-disclosure"><summary>View four selected presentations · 2024–2025</summary>        <ul class="academic-list">
+<Base title="Publications" active="Publications" description="Search Shahariar Emon’s journal articles, protocols and selected conference presentations in computational biophysics."><section class="container page-intro"><p class="eyebrow">Publications</p><h1>Research in print.<br/><span>Ideas in practice.</span></h1><p class="lead">Articles and protocols on membrane permeabilization, molecular transport and protein interactions, alongside earlier materials research.</p><a class="text-link" href={profile.profiles[0].url} target="_blank" rel="noreferrer">Google Scholar profile ↗</a></section><section class="container publication-section"><div class="filter-bar"><div role="group" aria-label="Filter publications by research area"><button class="filter active" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="permeabilization" aria-pressed="false">Membrane permeabilization</button><button class="filter" data-filter="transport" aria-pressed="false">Molecular transport</button><button class="filter" data-filter="protein-interactions" aria-pressed="false">Protein–small-molecule interactions</button><button class="filter" data-filter="materials" aria-pressed="false">Materials &amp; energy</button></div><label class="search-label"><span class="sr-only">Search publications</span><input type="search" id="pub-search" placeholder="Search publications…"/></label></div><p class="small muted" id="result-count" aria-live="polite">{publications.length} publications</p>{publications.map(p=><Publication p={p} full/>)}<p id="no-results" hidden>No publications match this search. Try another term or select All.</p></section><section class="container presentation-section" id="presentations" aria-labelledby="presentations-title"><h2 id="presentations-title">Conference presentations</h2><details class="presentation-disclosure"><summary>View four selected presentations · 2024–2025</summary>        <ul class="academic-list">
           <li><strong>Molecular Dynamics of the Hydrophobic–Hydrophilic Transition During Electroporation</strong><span>Oral · 12th International Conference on Physics in Medicine · University of Dhaka · October 2025</span></li>
           <li><strong>Investigating Pore Stabilization Dynamics During Electroporation via MD Simulations</strong><span>Poster · Bridging the Theoretical and Experimental Biophysicists in Bangladesh · University of Barishal · April 2025</span></li>
           <li><strong>Unraveling Amyloid Beta Clearance Mechanisms by ABCG2 Efflux pump in Alzheimer’s Disease using MD</strong><span>Oral · National Conference on Physics · University of Rajshahi · February 2025</span></li>
           <li><strong>Simulation and Quantitative Analysis of Biomacromolecules Transport through Nanopores in an Electroporated GUV</strong><span>Oral · National Conference on Physics for 21st Century · Khulna University · May 2024</span></li>
         </ul></details></section><script>
- const availableThemes=['all','permeabilization','transport','protein-interactions','materials'];const requestedTheme=new URLSearchParams(location.search).get('theme')||'all';let topic=availableThemes.includes(requestedTheme)?requestedTheme:'all';const search=document.querySelector<HTMLInputElement>('#pub-search')!;const pubs=[...document.querySelectorAll<HTMLElement>('[data-publication]')];
- function update(){let count=0;pubs.forEach(p=>{const visible=(topic==='all'||(p.dataset.themes||'').split(' ').includes(topic))&&(p.dataset.search||'').includes(search.value.trim().toLowerCase());p.hidden=!visible;if(visible)count++;});document.querySelector('#result-count')!.textContent=`${count} publication${count===1?'':'s'}`;document.querySelector<HTMLElement>('#no-results')!.hidden=count>0;}
- document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.filter!;document.querySelectorAll('[data-filter]').forEach(el=>{el.classList.toggle('active',el===b);el.setAttribute('aria-pressed',String(el===b));});update();}));search.addEventListener('input',update);
- document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>{const active=b.dataset.filter===topic;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});update();
- document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{const status=b.nextElementSibling!;try{await navigator.clipboard.writeText(b.dataset.copy!);status.textContent=' Copied';}catch{status.textContent=' Select the citation above to copy it.';}}));
+ const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+ const search = document.querySelector<HTMLInputElement>('#pub-search')!;
+ const publications = [...document.querySelectorAll<HTMLElement>('[data-publication]')];
+ const countLabel = document.querySelector('#result-count')!;
+ const noResults = document.querySelector<HTMLElement>('#no-results')!;
+ const requestedTheme = new URLSearchParams(location.search).get('theme');
+ let theme = filters.find(filter => filter.dataset.filter === requestedTheme)?.dataset.filter ?? 'all';
+
+ function update() {
+   const terms = search.value.toLowerCase().replace(/https?:\/\/(?:dx\.)?doi\.org\//g, '').trim().split(/\s+/).filter(Boolean);
+   let count = 0;
+   publications.forEach(publication => {
+     const matchesTheme = theme === 'all' || publication.dataset.themes?.split(' ').includes(theme);
+     const matchesSearch = terms.every(term => publication.dataset.search?.includes(term));
+     publication.hidden = !matchesTheme || !matchesSearch;
+     if (!publication.hidden) count++;
+   });
+   countLabel.textContent = `${count} publication${count === 1 ? '' : 's'}`;
+   noResults.hidden = count > 0;
+   filters.forEach(filter => {
+     const active = filter.dataset.filter === theme;
+     filter.classList.toggle('active', active);
+     filter.setAttribute('aria-pressed', String(active));
+   });
+ }
+
+ filters.forEach(filter => filter.addEventListener('click', () => {
+   theme = filter.dataset.filter!;
+   update();
+ }));
+ search.addEventListener('input', update);
+ update();
+
+ function openPresentations() {
+   if (location.hash === '#presentations') {
+     document.querySelector<HTMLDetailsElement>('.presentation-disclosure')!.open = true;
+   }
+ }
+ window.addEventListener('hashchange', openPresentations);
+ openPresentations();
+
+ document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(button => {
+   button.addEventListener('click', async () => {
+     const status = button.nextElementSibling!;
+     try {
+       await navigator.clipboard.writeText(button.dataset.copy!);
+       status.textContent = ' Copied';
+     } catch {
+       status.textContent = ' Select the citation above to copy it.';
+     }
+   });
+ });
 </script></Base>

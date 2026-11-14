@@ -2,21 +2,57 @@
 import { sitePath } from "../utils/paths";
 import '../styles/global.css';
 import { profile } from '../data/profile';
-const { title = 'Molecular simulation & membrane biophysics', description = 'Shahariar Emon studies membrane biophysics and protein–small-molecule interactions through molecular simulation.', active = '' } = Astro.props;
+const { title = 'Molecular simulation & membrane biophysics', description = 'Shahariar Emon studies membrane biophysics and protein–small-molecule interactions through molecular simulation.', active = '', noIndex = false } = Astro.props;
 const nav = [['Research','/research/'],['Publications','/publications/'],['Software','/software/'],['About','/about/'],['Beyond research','/hobbies/']];
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#F2F2F5"/><title>{title} · Shahariar Emon</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><link rel="icon" href={sitePath("/favicon.svg")} type="image/svg+xml"/><meta property="og:type" content="website"/><meta property="og:title" content={`${title} · Shahariar Emon`}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={new URL(sitePath('/images/membrane-detail.webp'),Astro.site)}/><meta name="twitter:card" content="summary_large_image"/></head>
-<body id="top"><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner"><a class="brand" href={sitePath("/")} aria-label="Shahariar Emon home"><span class="monogram">se<span>.</span></span><span>Shahariar Emon<span class="brand-sub">Computational biophysics</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{nav.map(([label,href])=><a href={sitePath(href)} aria-current={active === label ? 'page' : undefined}>{label}</a>)}<a class="nav-contact" href={sitePath("/about/#contact")}>Get in touch <span aria-hidden="true">↗</span></a></nav></div></header>
-<main id="main"><slot/></main>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#F2F2F5"/><title>{title} · Shahariar Emon</title><meta name="description" content={description}/>{noIndex && <meta name="robots" content="noindex"/>}{!noIndex && <link rel="canonical" href={canonical}/>}<link rel="icon" href={sitePath("/favicon.svg")} type="image/svg+xml"/><meta property="og:type" content="website"/><meta property="og:title" content={`${title} · Shahariar Emon`}/><meta property="og:description" content={description}/>{!noIndex && <meta property="og:url" content={canonical}/>}<meta property="og:image" content={new URL(sitePath('/images/research/membrane-water-channel-800.webp'), Astro.site)}/><meta name="twitter:card" content="summary_large_image"/></head>
+<body id="top"><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner"><a class="brand" href={sitePath("/")} aria-label="Shahariar Emon home"><span class="monogram">se<span>.</span></span><span>Shahariar Emon<span class="brand-sub">Computational biophysics</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{nav.map(([label,href])=><a href={sitePath(href)} aria-current={active === label ? (Astro.url.pathname === sitePath(href) ? 'page' : 'location') : undefined}>{label}</a>)}<a class="nav-contact" href={sitePath("/about/#contact")}>Get in touch <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" tabindex="-1"><slot/></main>
 <footer><div class="container"><div class="footer-top"><div><p class="eyebrow">Connect</p><h2>Let’s talk science.</h2><a class="email-link" href={`mailto:${profile.email}`}>{profile.email} <span aria-hidden="true">↗</span></a></div><div class="footer-links">{profile.profiles.filter(p=>['Google Scholar','ORCID','ResearchGate','GitHub'].includes(p.label)).map(p=><a href={p.url} target="_blank" rel="noreferrer">{p.label} ↗</a>)}<a href={sitePath("/about/#contact")}>All contact details →</a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} Shahariar Emon</span><span>Molecular simulation. Biological questions.</span><a href="#top" data-top>Back to top ↑</a></div></div></footer>
-<dialog id="figure-dialog" aria-label="Enlarged research figure"><div class="dialog-toolbar"><span>Research figure</span><form method="dialog"><button aria-label="Close enlarged figure">Close ×</button></form></div><img id="dialog-image" alt=""/><p id="dialog-caption"></p><a id="fullsize-link" class="text-link" href={sitePath("/")} target="_blank" rel="noreferrer">Open full-size image ↗</a></dialog>
+<dialog id="figure-dialog" aria-labelledby="image-dialog-title"><div class="dialog-toolbar"><span id="image-dialog-title">Research figure</span><form method="dialog"><button type="submit" autofocus>Close ×</button></form></div><img id="dialog-image" alt=""/><p id="dialog-caption"></p><a id="fullsize-link" class="text-link" href={sitePath("/")} target="_blank" rel="noreferrer">Open full-size image ↗</a></dialog>
 <script>
- const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');const nav=document.querySelector('#main-nav');
- toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav?.classList.toggle('open',!open);});
- document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){toggle?.setAttribute('aria-expanded','false');nav?.classList.remove('open');}});
+ const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
+ const nav = document.querySelector('#main-nav')!;
+
+ function setMenuOpen(open: boolean) {
+   toggle.setAttribute('aria-expanded', String(open));
+   nav.classList.toggle('open', open);
+ }
+
+ toggle.addEventListener('click', () => setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+ toggle.closest('header')?.addEventListener('keydown', event => {
+   if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
+   setMenuOpen(false);
+   toggle.focus();
+ });
  document.querySelector('[data-top]')?.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
- const dialog=document.querySelector<HTMLDialogElement>('#figure-dialog');
- document.querySelectorAll<HTMLAnchorElement>('[data-figure]').forEach(link=>link.addEventListener('click',e=>{if(!dialog)return;e.preventDefault();const img=dialog.querySelector<HTMLImageElement>('img')!;img.src=link.href;(dialog.querySelector('#fullsize-link') as HTMLAnchorElement).href=link.href;img.alt=link.dataset.alt||'';dialog.querySelector('#dialog-caption')!.textContent=link.dataset.caption||'';dialog.showModal();}));
- dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+ const dialog = document.querySelector<HTMLDialogElement>('#figure-dialog')!;
+ const image = dialog.querySelector('img')!;
+ const title = dialog.querySelector('#image-dialog-title')!;
+ const caption = dialog.querySelector('#dialog-caption')!;
+ const fullSizeLink = dialog.querySelector<HTMLAnchorElement>('#fullsize-link')!;
+ let opener: HTMLAnchorElement | undefined;
+
+ document.querySelectorAll<HTMLAnchorElement>('[data-figure], [data-photo]').forEach(link => {
+   link.addEventListener('click', event => {
+     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+     event.preventDefault();
+     opener = link;
+     title.textContent = link.hasAttribute('data-photo') ? 'Photograph' : 'Research figure';
+     caption.textContent = link.dataset.caption ?? '';
+     image.alt = link.dataset.alt ?? '';
+     image.src = link.href;
+     fullSizeLink.href = link.href;
+     dialog.showModal();
+   });
+ });
+
+ dialog.addEventListener('click', event => {
+   if (event.target === dialog) dialog.close();
+ });
+ dialog.addEventListener('close', () => {
+   opener?.focus();
+   image.removeAttribute('src');
+ });
 </script></body></html>

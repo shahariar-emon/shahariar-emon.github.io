@@ -13,11 +13,14 @@ const destinations = [
 ---
 <Base title="Computational biophysics" description="Shahariar Emon explores membrane permeabilization, molecular transport and protein–small-molecule interactions through computational biophysics.">
   <section class="container welcome">
-    <div class="welcome-copy"><div class="welcome-identity"><Portrait small /><p class="eyebrow">Computational biophysics</p></div><h1>Shahariar Emon.</h1>
+    <div class="welcome-copy"><div class="welcome-identity"><Portrait small /><p class="eyebrow">Computational biophysics</p></div><h1>Shahariar Emon</h1>
       <p class="welcome-intro">I study how membranes become permeable, how molecules cross them, and how small molecules influence proteins.</p>
       <p class="welcome-role">Research Manager · Islamic University, Bangladesh</p>
       <p class="welcome-motto">Exploring life at the<br/><span>molecular scale.</span></p>
-      <a class="text-link" href={sitePath('/research/')}>Discover my research →</a>
+      <div class="theme-links">
+        <a class="text-link" href={sitePath('/research/')}>Discover my research →</a>
+        <a class="text-link" href={sitePath('/publications/')}>Browse publications →</a>
+      </div>
     </div>
     <ScientificFigure id="membrane-water-channel" eager class="welcome-science" />
   </section>

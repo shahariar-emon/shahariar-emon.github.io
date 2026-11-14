@@ -18,7 +18,7 @@ export const photos = {
   "photography": [
     {
       "slug": "tree-and-sky",
-      "caption": "A tree in Japan.",
+      "caption": "A tree against the sky.",
       "width": 959,
       "height": 1280,
       "smallWidth": 360
@@ -39,7 +39,7 @@ export const photos = {
     },
     {
       "slug": "tree-and-building",
-      "caption": "Branches against a white building.",
+      "caption": "A tree outside a building in Japan.",
       "width": 1239,
       "height": 1280,
       "smallWidth": 465

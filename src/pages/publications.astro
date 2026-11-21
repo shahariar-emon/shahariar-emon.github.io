@@ -1,12 +1,26 @@
 ---
+import { conferences } from '../data/conferences';
+import { photos } from '../data/photos';
+import { sitePath } from '../utils/paths';
 import Base from '../layouts/Base.astro';import Publication from '../components/Publication.astro';import {publications} from '../data/publications';import {profile} from '../data/profile';
 ---
-<Base title="Publications" active="Publications" description="Search Shahariar Emon’s journal articles, protocols and selected conference presentations in computational biophysics."><section class="container page-intro"><p class="eyebrow">Publications</p><h1>Research in print.<br/><span>Ideas in practice.</span></h1><p class="lead">Articles and protocols on membrane permeabilization, molecular transport and protein interactions, alongside earlier materials research.</p><a class="text-link" href={profile.profiles[0].url} target="_blank" rel="noreferrer">Google Scholar profile ↗</a></section><section class="container publication-section"><div class="filter-bar"><div role="group" aria-label="Filter publications by research area"><button class="filter active" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="permeabilization" aria-pressed="false">Membrane permeabilization</button><button class="filter" data-filter="transport" aria-pressed="false">Molecular transport</button><button class="filter" data-filter="protein-interactions" aria-pressed="false">Protein–small-molecule interactions</button><button class="filter" data-filter="materials" aria-pressed="false">Materials &amp; energy</button></div><label class="search-label"><span class="sr-only">Search publications</span><input type="search" id="pub-search" placeholder="Search publications…"/></label></div><p class="small muted" id="result-count" aria-live="polite">{publications.length} publications</p>{publications.map(p=><Publication p={p} full/>)}<p id="no-results" hidden>No publications match this search. Try another term or select All.</p></section><section class="container presentation-section" id="presentations" aria-labelledby="presentations-title"><h2 id="presentations-title">Conference presentations</h2><details class="presentation-disclosure"><summary>View four selected presentations · 2024–2025</summary>        <ul class="academic-list">
-          <li><strong>Molecular Dynamics of the Hydrophobic–Hydrophilic Transition During Electroporation</strong><span>Oral · 12th International Conference on Physics in Medicine · University of Dhaka · October 2025</span></li>
-          <li><strong>Investigating Pore Stabilization Dynamics During Electroporation via MD Simulations</strong><span>Poster · Bridging the Theoretical and Experimental Biophysicists in Bangladesh · University of Barishal · April 2025</span></li>
-          <li><strong>Unraveling Amyloid Beta Clearance Mechanisms by ABCG2 Efflux pump in Alzheimer’s Disease using MD</strong><span>Oral · National Conference on Physics · University of Rajshahi · February 2025</span></li>
-          <li><strong>Simulation and Quantitative Analysis of Biomacromolecules Transport through Nanopores in an Electroporated GUV</strong><span>Oral · National Conference on Physics for 21st Century · Khulna University · May 2024</span></li>
-        </ul></details></section><script>
+<Base title="Publications" active="Publications" description="Search Shahariar Emon’s journal articles, protocols and selected conference presentations in computational biophysics."><section class="container page-intro"><p class="eyebrow">Publications</p><h1>Research in print.<br/><span>Ideas in practice.</span></h1><p class="lead">Articles and protocols on membrane permeabilization, molecular transport and protein interactions, alongside earlier materials research.</p><a class="text-link" href={profile.profiles[0].url} target="_blank" rel="noreferrer">Google Scholar profile ↗</a></section><section class="container publication-section"><div class="filter-bar"><div role="group" aria-label="Filter publications by research area"><button class="filter active" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="permeabilization" aria-pressed="false">Membrane permeabilization</button><button class="filter" data-filter="transport" aria-pressed="false">Molecular transport</button><button class="filter" data-filter="protein-interactions" aria-pressed="false">Protein–small-molecule interactions</button><button class="filter" data-filter="materials" aria-pressed="false">Materials &amp; energy</button></div><label class="search-label"><span class="sr-only">Search publications</span><input type="search" id="pub-search" placeholder="Search publications…"/></label></div><p class="small muted" id="result-count" aria-live="polite">{publications.length} publications</p>{publications.map(p=><Publication p={p} full/>)}<p id="no-results" hidden>No publications match this search. Try another term or select All.</p></section><section class="container presentation-section" id="presentations" aria-labelledby="presentations-title">
+  <h2 id="presentations-title">Conference presentations</h2>
+  {conferences.map(group => <section class="conference-group" aria-labelledby={group.id}>
+    <h3 id={group.id}>{group.title}</h3>
+    <ol class="conference-list">
+      {group.entries.map(entry => <li>
+        <p>{entry.authors.split('Emon, S.').map((part, index) => <>{index > 0 && <strong>Emon, S.</strong>}{part}</>)} <span class="conference-title">{entry.title}</span> {entry.event}</p>
+        {entry.doi && <p class="conference-link"><a href={'https://doi.org/' + entry.doi}>doi:{entry.doi}</a></p>}
+        {entry.photos && <div class="conference-photos">{entry.photos.map(slug => {
+          const photo = photos.conferences.find(photo => photo.slug === slug);
+          if (!photo) throw new Error('Missing conference photograph: ' + slug);
+          return <a href={sitePath('/images/portfolio/' + photo.slug + '-1280.webp')} data-photo data-caption={photo.caption} data-alt={photo.caption}>{photo.slug === 'poster-discussion' ? 'Poster discussion photograph' : 'Award ceremony photograph'}</a>;
+        })}</div>}
+      </li>)}
+    </ol>
+  </section>)}
+</section><script>
  const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
  const search = document.querySelector<HTMLInputElement>('#pub-search')!;
  const publications = [...document.querySelectorAll<HTMLElement>('[data-publication]')];
@@ -40,13 +54,6 @@ import Base from '../layouts/Base.astro';import Publication from '../components/
  search.addEventListener('input', update);
  update();
 
- function openPresentations() {
-   if (location.hash === '#presentations') {
-     document.querySelector<HTMLDetailsElement>('.presentation-disclosure')!.open = true;
-   }
- }
- window.addEventListener('hashchange', openPresentations);
- openPresentations();
 
  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(button => {
    button.addEventListener('click', async () => {
@@ -60,3 +67,15 @@ import Base from '../layouts/Base.astro';import Publication from '../components/
    });
  });
 </script></Base>
+
+<style>
+  .conference-group { max-width: 950px; margin-top: 36px; }
+  .conference-group h3 { font-size: 25px; margin-bottom: 24px; line-height: 1.3; }
+  .conference-list { margin: 0; padding-left: 24px; }
+  .conference-list li { padding: 20px 0 20px 8px; border-top: 1px solid var(--line); }
+  .conference-list p { font-size: 15px; line-height: 1.75; }
+  .conference-title { font-style: italic; }
+  .conference-link, .conference-photos { margin-top: 10px; }
+  .conference-photos { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; }
+  .conference-group a { text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+</style>

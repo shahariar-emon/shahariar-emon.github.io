@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ScientificFigure from '../../components/ScientificFigure.astro';
 import { sitePath } from '../../utils/paths';
 import { publications } from '../../data/publications';
 
@@ -24,6 +25,7 @@ const publicationGroups = [
     <section class="research-section" id="protein-interactions" aria-labelledby="protein-interactions-title">
       <h2 id="protein-interactions-title">Protein–Small-Molecule Interactions</h2>
       <p>I investigate the molecular mechanisms of protein–small-molecule interactions, with an emphasis on how ligand binding influences protein structure, dynamics, and function.</p>
+      <div class="representative-figure"><ScientificFigure id="protein-small-molecule" /></div>
       <p>My current research focuses on proteins involved in autophagy regulation, particularly p62/SQSTM1 and LC3. Using structure-based virtual screening and molecular dynamics simulations, I investigate ligand recognition by different domains of p62, including PB1, ZZ, and UBA. I am particularly interested in the dynamics of PB1-domain association and how small-molecule binding may influence protein–protein interactions.</p>
       <p>I am also investigating the molecular mechanism of PBITE-1 binding to the Pointed (PNT) domain of the oncogenic transcription factor ERG, focusing on the molecular interactions and conformational dynamics underlying ligand recognition.</p>
       <p>To support these investigations, I develop and apply computational workflows for large-scale molecular screening. My work on semdock, a flexible virtual-screening workflow, facilitates chemical library preparation, parallel molecular docking, and candidate prioritization. These methods support the identification of promising protein-binding compounds for further investigation through molecular simulations and experimental studies.</p>
@@ -33,6 +35,7 @@ const publicationGroups = [
     <section class="research-section" id="permeabilization" aria-labelledby="permeabilization-title">
       <h2 id="permeabilization-title">Membrane Biophysics and Permeabilization</h2>
       <p>I investigate the molecular mechanisms governing lipid membrane stability, pore formation, and permeability. My current research focuses on understanding how membrane lipid composition influences electroporation. By combining molecular dynamics simulations with machine-learning approaches, I examine the roles of different lipid species in facilitating or inhibiting pore formation and investigate the molecular interactions responsible for these effects.</p>
+      <div class="representative-figure"><ScientificFigure id="membrane-water-channel" /></div>
       <p>I also study how small molecules interact with lipid membranes and influence their permeability. Using all-atom molecular dynamics simulations and free-energy calculations, I investigate how these interactions affect membrane organization, hydration, and the energetics of pore formation.</p>
       <p id="transport">My previous research on electroporation and molecular transport provides a foundation for understanding how membrane pores form, evolve, and facilitate molecular transport across lipid bilayers.</p>
       <p class="project-links">Related projects: <a href={sitePath('/research/electroporation/')}>Electroporation and pulse modulation</a>; <a href={sitePath('/research/molecular-transport/')}>Molecular transport through membrane pores</a>.</p>
@@ -66,6 +69,7 @@ const publicationGroups = [
     max-width: 860px;
     padding-block: 64px 80px;
   }
+  .representative-figure { max-width: 580px; margin: 28px auto; }
   .research-introduction { padding-bottom: 40px; }
   h1 { font-size: clamp(40px, 5vw, 56px); margin-bottom: 28px; }
   h2 { font-size: clamp(27px, 3vw, 34px); line-height: 1.2; margin-bottom: 24px; }

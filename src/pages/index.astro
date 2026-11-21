@@ -3,29 +3,120 @@ import { sitePath } from '../utils/paths';
 import Base from '../layouts/Base.astro';
 import Portrait from '../components/Portrait.astro';
 import ScientificFigure from '../components/ScientificFigure.astro';
-const destinations = [
-  { title: 'Research', description: 'The questions behind my work on membranes, transport and molecular interactions.', href: '/research/' },
-  { title: 'Publications', description: 'Published studies, protocols and selected conference presentations.', href: '/publications/' },
-  { title: 'Software', description: 'Tools for molecular screening and quantitative transport modeling.', href: '/software/' },
-  { title: 'About', description: 'My academic background, research experience and scientific exchange.', href: '/about/' },
-  { title: 'Beyond research', description: 'Music, photography and moments beyond the laboratory.', href: '/hobbies/' },
-];
+import { profile } from '../data/profile';
 ---
-<Base title="Computational biophysicist" description="Shahariar Emon explores membrane permeabilization, molecular transport and protein–small-molecule interactions through computational biophysics.">
-  <section class="container welcome">
-    <div class="welcome-copy"><div class="welcome-identity"><Portrait small /><p class="eyebrow">Computational biophysicist</p></div><h1>Shahariar Emon</h1>
-      <p class="welcome-intro">I study how membranes become permeable, how molecules cross them, and how small molecules influence proteins.</p>
-      <p class="welcome-role">Research Manager · Islamic University, Bangladesh</p>
-      <p class="welcome-motto">Exploring life at the<br/><span>molecular scale.</span></p>
-      <div class="theme-links">
-        <a class="text-link" href={sitePath('/research/')}>Discover my research →</a>
-        <a class="text-link" href={sitePath('/publications/')}>Browse publications →</a>
+<Base title="Computational biophysicist" description="Shahariar Emon investigates how molecular interactions and structural changes influence biological membranes and proteins using molecular simulations and quantitative modeling.">
+  <header class="home-banner">
+    <div class="container">
+      <p class="eyebrow">Computational biophysicist</p>
+      <h1>Shahariar Emon</h1>
+      <p class="home-affiliation">{profile.title} · {profile.institution}</p>
+    </div>
+  </header>
+
+  <section class="home-introduction" aria-labelledby="research-overview-title">
+    <div class="container introduction-inner">
+      <h2 id="research-overview-title">My research focuses on understanding how molecular interactions and structural changes influence the behavior of biological membranes and proteins.</h2>
+      <div class="introduction-copy">
+        <p>In particular, I investigate how ligand binding influences protein structure, dynamics, and function, and how membrane lipid composition and small-molecule interactions influence membrane stability, pore formation, and permeability.</p>
+        <p>I use molecular dynamics simulations, quantitative modeling, machine learning, and structure-based computational methods to investigate the molecular mechanisms underlying these processes.</p>
+        <p class="introduction-links">For more information, explore my <a href={sitePath('/research/')}>research</a> and <a href={sitePath('/publications/')}>publications</a>.</p>
       </div>
     </div>
-    <ScientificFigure id="membrane-water-channel" eager class="welcome-science" />
   </section>
-  <section class="container discover" aria-labelledby="discover-title">
-    <div class="discover-heading"><p class="eyebrow">Explore</p><h2 id="discover-title">Follow your curiosity.</h2></div>
-    <div class="destination-grid">{destinations.map((item, i) => <a class="destination" href={sitePath(item.href)}><span class="destination-number">0{i + 1}</span><div><h3>{item.title} <span aria-hidden="true">↗</span></h3><p>{item.description}</p></div></a>)}</div>
+
+  <section class="home-profile" aria-labelledby="profile-title">
+    <div class="container profile-inner">
+      <div class="home-portrait"><Portrait /></div>
+      <div class="profile-copy">
+        <p class="eyebrow">About the researcher</p>
+        <h2 id="profile-title">Shahariar Emon</h2>
+        <p>I am a {profile.title} with the {profile.project} in the {profile.department} at {profile.institution}. I lead the computational work on a project studying how small molecules may influence autophagy in cancer.</p>
+        <p>I also serve as Group Leader of the Computer Aided Drug Discovery Lab (CAAD) on the ResearchBuddy AI platform.</p>
+        <a class="home-more" href={sitePath('/about/')}>More about my background and experience</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-direction" id="protein-interactions" aria-labelledby="protein-title">
+    <div class="container direction-inner">
+      <div class="direction-copy">
+        <h2 id="protein-title">Protein–Small-Molecule Interactions</h2>
+        <p>I investigate the molecular mechanisms of protein–small-molecule interactions, with an emphasis on how ligand binding influences protein structure, dynamics, and function.</p>
+        <p>My current research focuses on proteins involved in autophagy regulation, particularly p62/SQSTM1 and LC3. Using structure-based virtual screening and molecular dynamics simulations, I investigate ligand recognition by different domains of p62 and how small-molecule binding may influence protein–protein interactions.</p>
+        <p>I am also investigating the molecular mechanism of PBITE-1 binding to the Pointed (PNT) domain of the oncogenic transcription factor ERG.</p>
+        <a class="home-more" href={sitePath('/research/#protein-interactions')}>Explore protein–small-molecule research</a>
+      </div>
+      <div class="direction-figure"><ScientificFigure id="protein-small-molecule" /></div>
+    </div>
+  </section>
+
+  <section class="home-direction membrane-direction" id="permeabilization" aria-labelledby="membrane-title">
+    <div class="container direction-inner">
+      <div class="direction-copy">
+        <h2 id="membrane-title">Membrane Biophysics and Permeabilization</h2>
+        <p>I investigate the molecular mechanisms governing lipid membrane stability, pore formation, and permeability. My current research focuses on understanding how membrane lipid composition influences electroporation.</p>
+        <p>By combining molecular dynamics simulations with machine-learning approaches, I examine the roles of different lipid species in facilitating or inhibiting pore formation and investigate the molecular interactions responsible for these effects.</p>
+        <p>I also use all-atom molecular dynamics simulations and free-energy calculations to investigate how small molecules interact with lipid membranes and influence membrane organization, hydration, and the energetics of pore formation.</p>
+        <a class="home-more" href={sitePath('/research/#permeabilization')}>Explore membrane biophysics research</a>
+      </div>
+      <div class="direction-figure"><ScientificFigure id="membrane-water-channel" /></div>
+    </div>
+  </section>
+
+  <section class="container home-software" aria-labelledby="software-title">
+    <div>
+      <p class="eyebrow">Computational methods</p>
+      <h2 id="software-title">Tools for molecular screening</h2>
+    </div>
+    <div>
+      <p>To support these investigations, I develop and apply computational workflows for large-scale molecular screening. My work on semdock, a flexible virtual-screening workflow, facilitates chemical library preparation, parallel molecular docking, and candidate prioritization.</p>
+      <a class="home-more" href={sitePath('/software/')}>Explore research software</a>
+    </div>
   </section>
 </Base>
+
+<style>
+  .home-banner { background: var(--dark); color: var(--paper); text-align: center; padding-block: 76px 80px; }
+  .home-banner .eyebrow { color: #d1d1db; margin-bottom: 24px; }
+  .home-banner h1 { max-width: none; font-size: clamp(42px, 5.5vw, 72px); }
+  .home-affiliation { margin-top: 24px; font-size: 14px; color: #d1d1db; }
+  .home-introduction { padding-block: 68px; }
+  .introduction-inner { max-width: 1000px; text-align: center; }
+  .introduction-inner h2 { font-size: clamp(25px, 2.5vw, 34px); line-height: 1.4; letter-spacing: -.025em; }
+  .introduction-copy { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 30px; }
+  .introduction-copy p { font-size: 17px; line-height: 1.8; }
+  p + p { margin-top: 18px; }
+  .introduction-links { margin-top: 26px; }
+  a { text-decoration: underline; text-underline-offset: 4px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .home-profile { background: #e7e7ec; }
+  .profile-inner { display: grid; grid-template-columns: minmax(220px, 320px) minmax(0, 1fr); gap: clamp(36px, 7vw, 100px); align-items: center; padding-block: 48px; }
+  .home-portrait :global(.profile-portrait) { height: 360px; margin: 0; object-position: 50% 32%; }
+  .profile-copy { max-width: 700px; }
+  .profile-copy .eyebrow { margin-bottom: 16px; }
+  .profile-copy h2 { font-size: 36px; margin-bottom: 24px; }
+  .profile-copy p:not(.eyebrow), .direction-copy p, .home-software p:not(.eyebrow) { font-size: 16px; line-height: 1.8; }
+  .home-more { display: inline-block; font-size: 14px; line-height: 1.7; margin-top: 24px; }
+  .home-direction { border-bottom: 1px solid var(--line); }
+  .direction-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: 64px; }
+  .direction-copy h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.2; margin-bottom: 26px; }
+  .direction-figure { min-width: 0; }
+  .membrane-direction { background: #eaeaf0; }
+  .membrane-direction .direction-inner { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .membrane-direction .direction-copy { grid-column: 2; grid-row: 1; }
+  .membrane-direction .direction-figure { grid-column: 1; grid-row: 1; }
+  .home-software { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; padding-block: 56px 64px; }
+  .home-software h2 { font-size: 30px; line-height: 1.2; }
+  .home-software .eyebrow { margin-bottom: 16px; }
+  @media (max-width: 800px) {
+    .home-banner { padding-block: 52px 56px; }
+    .home-introduction { padding-block: 44px; }
+    .introduction-copy p { font-size: 16px; }
+    .profile-inner, .direction-inner, .membrane-direction .direction-inner, .home-software { grid-template-columns: 1fr; gap: 30px; padding-block: 40px; }
+    .home-portrait { max-width: 300px; width: 100%; }
+    .membrane-direction .direction-copy, .membrane-direction .direction-figure { grid-column: auto; grid-row: auto; }
+    .direction-figure { width: 100%; max-width: 580px; margin-inline: auto; }
+    .profile-copy h2 { font-size: 32px; }
+  }
+</style>

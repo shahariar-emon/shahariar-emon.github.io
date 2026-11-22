@@ -1,10 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Publication from '../../components/Publication.astro';
 import ScientificFigure from '../../components/ScientificFigure.astro';
 import { sitePath } from '../../utils/paths';
 import { publications } from '../../data/publications';
 
-// Reuse the bibliography without changing the comprehensive Publications page.
+// Both research and comprehensive publication lists use the same source data and entry component.
 const publicationGroups = [
   { id: 'protein-publications', title: 'Protein–Small-Molecule Interactions', themes: ['protein-interactions'] },
   { id: 'membrane-publications', title: 'Membrane Biophysics and Permeabilization', themes: ['permeabilization', 'transport'] },
@@ -47,15 +48,7 @@ const publicationGroups = [
         <section class="publication-group" aria-labelledby={group.id}>
           <h3 id={group.id}>{group.title}</h3>
           <ul class="bibliography" role="list">
-            {group.papers.map(paper => (
-              <li>
-                <p>
-                  {paper.authors.split(', ').map((author, index) => <>{index > 0 && ', '}{author === 'Shahariar Emon' ? <strong>{author}</strong> : author}</>)}.
-                  {' '}({paper.year}). {paper.title}. <em>{paper.journal}</em>, {paper.details}.
-                  {' '}<a href={`https://doi.org/${paper.doi}`}>doi:{paper.doi}</a>
-                </p>
-              </li>
-            ))}
+            {group.papers.map(paper => <li><Publication p={paper} /></li>)}
           </ul>
         </section>
       ))}
@@ -83,8 +76,7 @@ const publicationGroups = [
   .publication-group { margin-top: 30px; }
   .publication-group + .publication-group { margin-top: 36px; }
   .bibliography { list-style: none; margin: 0; padding: 0; }
-  .bibliography li + li { margin-top: 24px; }
-  .bibliography p { font-size: 14px; line-height: 1.75; }
+  .bibliography li + li { margin-top: 0; }
   .all-publications { margin-top: 32px; font-size: 14px; }
   .selected-publications { padding-bottom: 0; }
   @media (max-width: 650px) {

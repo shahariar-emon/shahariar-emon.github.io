@@ -1,5 +1,45 @@
 ---
 import { sitePath } from "../utils/paths";
-const {p,full=false}=Astro.props;
+const { p, full = false } = Astro.props;
+const doiUrl = `https://doi.org/${p.doi}`;
+const authorNames = p.authors.split(', ');
 ---
-<article class="publication" data-publication data-themes={p.themes.join(' ')} data-search={`${p.title} ${p.authors} ${p.journal} ${p.year} ${p.doi} ${p.summary}`.toLowerCase()}><div class="pub-year">{p.year}<span>{p.type}</span></div><div class="pub-body"><p class="eyebrow">{p.journal} <span>· {p.details}</span></p><h3><a href={`https://doi.org/${p.doi}`} target="_blank" rel="noreferrer">{p.title}<span aria-hidden="true"> ↗</span></a></h3>{full&&<p class="authors">{p.authors}</p>}<p>{p.summary}</p><div class="text-links">{p.project&&<a href={sitePath(p.project)}>Explore the research →</a>}<a href={`https://doi.org/${p.doi}`} target="_blank" rel="noreferrer">DOI ↗</a>{full&&<details class="citation"><summary>BibTeX</summary><pre>{p.bibtex}</pre><button data-copy={p.bibtex}>Copy citation</button><span class="copy-status" aria-live="polite"></span></details>}</div></div></article>
+<article
+  class="bib-entry"
+  data-publication
+  data-themes={p.themes.join(' ')}
+  data-search={`${p.title} ${p.authors} ${p.journal} ${p.year} ${p.doi} ${p.summary}`.toLowerCase()}
+  aria-label={p.title}
+>
+  <p class="bib-title"><a href={doiUrl} target="_blank" rel="noreferrer">{p.title}</a></p>
+  <p class="bib-authors">
+    {authorNames.map((author, index) => <>{index > 0 && ', '}{author === 'Shahariar Emon' ? <strong>{author}</strong> : author}</>)}
+  </p>
+  <p class="bib-source"><em>{p.journal}</em>, {p.details} ({p.year})</p>
+  <div class="bib-actions">
+    <a href={doiUrl} target="_blank" rel="noreferrer" aria-label={`View DOI for ${p.title}`}>DOI ↗</a>
+    {full && p.project && <a href={sitePath(p.project)}>Related project ↗</a>}
+  </div>
+  {full && p.bibtex && <details class="citation bib-citation">
+    <summary>BibTeX citation</summary>
+    <pre>{p.bibtex}</pre>
+    <button type="button" data-copy={p.bibtex}>Copy citation</button><span class="copy-status" aria-live="polite"></span>
+  </details>}
+</article>
+
+<style>
+  .bib-entry { min-width: 0; padding: 24px 0 27px; border-top: 1px solid var(--line); }
+  .bib-title { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.48; font-weight: 600; letter-spacing: -.012em; color: var(--ink); overflow-wrap: anywhere; }
+  .bib-title a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .bib-authors { margin-top: 9px; color: var(--sub); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+  .bib-authors strong { font-weight: 700; color: var(--text); }
+  .bib-source { margin-top: 7px; font-size: 13px; color: var(--text); line-height: 1.65; }
+  .bib-actions { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 10px; font-size: 13px; line-height: 1.6; font-weight: 600; }
+  .bib-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .bib-citation { margin-top: 14px; font-size: 12px; }
+  .bib-citation pre { max-width: 100%; }
+  @media (max-width: 650px) {
+    .bib-entry { padding-block: 21px 24px; }
+    .bib-authors { font-size: 13px; }
+  }
+</style>
